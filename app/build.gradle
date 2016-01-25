@@ -25,3 +25,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile files('libs/pocketsphinx-android-5prealpha-nolib.jar')
 }
+
+ant.importBuild 'assets.xml'
+preBuild.dependsOn(list, checksum)
+clean.dependsOn(clean_assets)
