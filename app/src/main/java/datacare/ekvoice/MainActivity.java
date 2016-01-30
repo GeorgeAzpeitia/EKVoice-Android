@@ -10,6 +10,7 @@ import java.util.HashMap;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,10 +60,19 @@ public class MainActivity extends Activity implements
                 if (result != null) {
                     speechOutput.setText("Failed to init recognizer " + result);
                 } else {
+                    speechOutput.setText("Done");
                     switchSearch("wakeup");
                 }
             }
         }.execute();
+
+        startSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recognizer.stop();
+
+            }
+        });
     }
 
     @Override
@@ -84,7 +94,7 @@ public class MainActivity extends Activity implements
 
         String text = hypothesis.getHypstr();
 
-        speechOutput.setText(text);
+        //speechOutput.setText(text);
     }
 
     /**
@@ -92,9 +102,11 @@ public class MainActivity extends Activity implements
      */
     @Override
     public void onResult(Hypothesis hypothesis) {
+
         if (hypothesis != null) {
             String text = hypothesis.getHypstr();
-            makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+            speechOutput.setText(text);
+            //makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -136,7 +148,7 @@ public class MainActivity extends Activity implements
                 .setKeywordThreshold(1e-45f)
 
                         // Use context-independent phonetic search, context-dependent is too slow for mobile
-                .setBoolean("-allphone_ci", true)
+                //.setBoolean("-allphone_ci", true)
 
                 .getRecognizer();
         recognizer.addListener(this);
@@ -172,7 +184,7 @@ public class MainActivity extends Activity implements
         //recognizer.addGrammarSearch("wakeup", digitsGrammar);
 
         // Create language model search
-        File languageModel = new File(assetsDir, "en-us.lm.bin");
+        File languageModel = new File(assetsDir, "cmusphinx-5.0-en-us.lm.dmp");
         recognizer.addNgramSearch("wakeup", languageModel);
 
         // Phonetic search
