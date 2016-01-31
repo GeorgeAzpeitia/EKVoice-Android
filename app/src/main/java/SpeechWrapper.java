@@ -22,7 +22,7 @@ public class SpeechWrapper {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && data != null){
                     ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    returnedText.setText(results.get(0));
+                    note.setText(results.get(0));
                 }
                 break;
             }
