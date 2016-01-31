@@ -5,9 +5,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="4dp"
+    android:paddingRight="4dp"
+    android:paddingTop="4dp"
     tools:context="georgeazpeitia.speechrecognizer_demo_app.MainSpeechPage"
     android:baselineAligned="false"
     android:gravity="bottom">
@@ -15,7 +15,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         android:layout_gravity="top"
         android:layout_weight="1"
         android:id="@+id/textOutput" />

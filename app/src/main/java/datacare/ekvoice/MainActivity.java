@@ -5,9 +5,11 @@ import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.Override;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +32,8 @@ public class MainActivity extends Activity implements
 
     private TextView speechOutput;
     boolean listening = false;
+    private boolean connected = false;
+
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -38,6 +42,23 @@ public class MainActivity extends Activity implements
         speechOutput = ((TextView) findViewById(R.id.textOutput));
         speechOutput.setText("Preparing the recognizer");
         startSpeech = (Button) findViewById(R.id.listenButton);
+
+        startSpeech.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                //Checks for network via mobile and wifi
+                ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService
+                                                          (Context.CONNECTIVITY_SERVICE);
+                if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState()
+                        == NetworkInfo.State.CONNECTED ||
+                        connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState()
+                                == NetworkInfo.State.CONNECTED) {
+                    connected = true;
+                } else
+                    connected = false;
+            }
+        )};
 
         // Recognizer initialization is a time-consuming and it involves IO,
         // so we execute it in async task
