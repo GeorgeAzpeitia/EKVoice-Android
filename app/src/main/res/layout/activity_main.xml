@@ -22,5 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Push to start listening"
-        android:id="@+id/listenButton" />
+        android:id="@+id/listenButton"
+        android:layout_weight="0.22" />
 </LinearLayout>

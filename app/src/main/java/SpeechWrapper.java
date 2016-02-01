@@ -31,10 +31,6 @@ public class SpeechWrapper extends AppCompatActivity{
         }
     }
 
-    public TextView getNote(){
-        return note;
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);

@@ -31,13 +31,12 @@ public class MainActivity extends Activity implements
         RecognitionListener {
 
     Button startSpeech;
+    private TextView speechOutput;
     private SpeechRecognizer recognizer;
+    boolean listening = false;
+    private NetworkInfo ni;
 
     SpeechWrapper onlineSpeech;
-
-    private TextView speechOutput;
-    boolean listening = false;
-    private boolean connected = false;
 
     @Override
     public void onCreate(Bundle state) {
@@ -51,22 +50,11 @@ public class MainActivity extends Activity implements
         startSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Checks for network via mobile and wifi
-                ConnectivityManager cm = (ConnectivityManager)
-                    getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-                if (networkInfo != null && networkInfo.isConnected()){
-                    connected = true;
-                }else{
-                    connected = false;
-                }
-
-                if (connected){
-                    onlineSpeech.promptOnlineSpeechInput();
-                    //Do online speech to text.
-                }else{
-                    //Do offline speech to text.
+                if (testNetwork()) {
+                    promptOnlineSpeechInput();
+                } else {
+                    //offline speech to text.
                 }
             }
         });
@@ -98,13 +86,29 @@ public class MainActivity extends Activity implements
             }
         }.execute();
 
-        startSpeech.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recognizer.stop();
+//        startSpeech.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                recognizer.stop();
+//            }
+//        });
+    }//onCreate
 
-            }
-        });
+    //returns true if there is network false if not
+    public boolean testNetwork(){
+        ConnectivityManager cm = (ConnectivityManager)
+                getSystemService(Context.CONNECTIVITY_SERVICE);
+        ni = cm.getActiveNetworkInfo(); //prob
+        if (ni != null && ni.isConnected()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public void promptOnlineSpeechInput(){
+        onlineSpeech.promptOnlineSpeechInput();
+        speechOutput = onlineSpeech.getNote();
     }
 
     @Override
