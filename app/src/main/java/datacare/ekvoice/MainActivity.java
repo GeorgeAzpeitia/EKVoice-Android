@@ -5,11 +5,16 @@ import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.Override;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,17 +22,23 @@ import edu.cmu.pocketsphinx.Assets;
 import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
-
+import android.speech.*;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 
 public class MainActivity extends Activity implements
         RecognitionListener {
 
     Button startSpeech;
     private SpeechRecognizer recognizer;
+
+    SpeechWrapper onlineSpeech;
+
     private TextView speechOutput;
     boolean listening = false;
+    private boolean connected = false;
+
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -36,6 +47,30 @@ public class MainActivity extends Activity implements
         speechOutput = ((TextView) findViewById(R.id.textOutput));
         speechOutput.setText("Preparing the recognizer");
         startSpeech = (Button) findViewById(R.id.listenButton);
+
+        startSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Checks for network via mobile and wifi
+                ConnectivityManager cm = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()){
+                    connected = true;
+                }else{
+                    connected = false;
+                }
+
+                if (connected){
+                    onlineSpeech.promptOnlineSpeechInput();
+                    //Do online speech to text.
+                }else{
+                    //Do offline speech to text.
+                }
+            }
+        });
+
         // Recognizer initialization is a time-consuming and it involves IO,
         // so we execute it in async task
 
@@ -57,10 +92,19 @@ public class MainActivity extends Activity implements
                 if (result != null) {
                     speechOutput.setText("Failed to init recognizer " + result);
                 } else {
+                    speechOutput.setText("Done");
                     switchSearch("wakeup");
                 }
             }
         }.execute();
+
+        startSpeech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recognizer.stop();
+
+            }
+        });
     }
 
     @Override
@@ -82,7 +126,7 @@ public class MainActivity extends Activity implements
 
         String text = hypothesis.getHypstr();
 
-        speechOutput.setText(text);
+        //speechOutput.setText(text);
     }
 
     /**
@@ -90,9 +134,11 @@ public class MainActivity extends Activity implements
      */
     @Override
     public void onResult(Hypothesis hypothesis) {
+
         if (hypothesis != null) {
             String text = hypothesis.getHypstr();
-            makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+            speechOutput.setText(text);
+            //makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -124,7 +170,7 @@ public class MainActivity extends Activity implements
         // of different kind and switch between them
 
         recognizer = defaultSetup()
-                .setAcousticModel(new File(assetsDir, "en-us-ptm"))
+                .setAcousticModel(new File(assetsDir, "en-us"))
                 .setDictionary(new File(assetsDir, "cmudict-en-us.dict"))
 
                         // To disable logging of raw audio comment out this call (takes a lot of space on the device)
@@ -134,7 +180,7 @@ public class MainActivity extends Activity implements
                 .setKeywordThreshold(1e-45f)
 
                         // Use context-independent phonetic search, context-dependent is too slow for mobile
-                .setBoolean("-allphone_ci", true)
+                //.setBoolean("-allphone_ci", true)
 
                 .getRecognizer();
         recognizer.addListener(this);
@@ -143,9 +189,39 @@ public class MainActivity extends Activity implements
          * They are added here for demonstration. You can leave just one.
          */
 
+
+        // The way these calls work is the first variable is just the name of the model you want to activate when
+        // you call recognizer.startListening(String name);
+        // There's a couple of different models you can call this one is a natural language grammar search, I think
+        // it will probably be what we end up using when we actually implement this in the language.
+
         // Create language model search
-        File languageModel = new File(assetsDir, "weather.dmp");
+
+        //File languageModel = new File(assetsDir, "weather.dmp");
+        //recognizer.addNgramSearch("wakeup", languageModel);
+
+        // Phonetic search
+        //File phoneticModel = new File(assetsDir, "en-phone.dmp");
+        //recognizer.addAllphoneSearch("wakeup", phoneticModel);
+
+        // Create keyword-activation search.
+        //recognizer.addKeyphraseSearch("wakeup", KEYPHRASE);
+
+        // Create grammar-based search for selection between demos
+        //File menuGrammar = new File(assetsDir, "menu.gram");
+        //recognizer.addGrammarSearch("wakeup", menuGrammar);
+
+        // Create grammar-based search for digit recognition
+        //File digitsGrammar = new File(assetsDir, "digits.gram");
+        //recognizer.addGrammarSearch("wakeup", digitsGrammar);
+
+        // Create language model search
+        File languageModel = new File(assetsDir, "cmusphinx-5.0-en-us.lm.dmp");
         recognizer.addNgramSearch("wakeup", languageModel);
+
+        // Phonetic search
+        //File phoneticModel = new File(assetsDir, "en-phone.dmp");
+        //recognizer.addAllphoneSearch("wakeup", phoneticModel);
     }
 
     @Override
