@@ -26,11 +26,14 @@ import android.speech.*;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
 public class MainActivity extends Activity implements
         RecognitionListener {
 
     Button startSpeech;
     private SpeechRecognizer recognizer;
+
+    SpeechWrapper onlineSpeech;
 
     private TextView speechOutput;
     boolean listening = false;
@@ -50,15 +53,21 @@ public class MainActivity extends Activity implements
             public void onClick(View v) {
 
                 //Checks for network via mobile and wifi
-                ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService
-                        (Context.CONNECTIVITY_SERVICE);
-                if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState()
-                        == NetworkInfo.State.CONNECTED ||
-                        connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState()
-                                == NetworkInfo.State.CONNECTED) {
+                ConnectivityManager cm = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()){
                     connected = true;
-                } else
+                }else{
                     connected = false;
+                }
+
+                if (connected){
+                    onlineSpeech.promptOnlineSpeechInput();
+                    //Do online speech to text.
+                }else{
+                    //Do offline speech to text.
+                }
             }
         });
 

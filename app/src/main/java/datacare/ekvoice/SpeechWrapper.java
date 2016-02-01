@@ -1,5 +1,7 @@
+package datacare.ekvoice;
+
 /**
- * Created by george on 1/30/16.
+ * Created by Lou on 1/31/2016.
  */
 
 import android.content.ActivityNotFoundException;
@@ -17,6 +19,7 @@ import java.lang.Override;
 //I'm guessing this is where we'll have online recognition -Lou
 public class SpeechWrapper extends AppCompatActivity{
     private TextView note;
+    private Button recordButton;
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
     public void promptOnlineSpeechInput(){
@@ -29,10 +32,6 @@ public class SpeechWrapper extends AppCompatActivity{
         } catch (ActivityNotFoundException a){
             Toast.makeText(getApplicationContext(), "Couldn't record", Toast.LENGTH_SHORT);
         }
-    }
-
-    public TextView getNote(){
-        return note;
     }
 
     @Override
