@@ -10,6 +10,8 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -43,13 +45,13 @@ public class MainActivity extends Activity implements
         speechOutput.setText("Preparing the recognizer");
         startSpeech = (Button) findViewById(R.id.listenButton);
 
-        startSpeech.setOnClickListener(new View.OnClickListener(){
+        startSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Checks for network via mobile and wifi
                 ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService
-                                                          (Context.CONNECTIVITY_SERVICE);
+                        (Context.CONNECTIVITY_SERVICE);
                 if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState()
                         == NetworkInfo.State.CONNECTED ||
                         connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState()
@@ -58,7 +60,7 @@ public class MainActivity extends Activity implements
                 } else
                     connected = false;
             }
-        )};
+        });
 
         // Recognizer initialization is a time-consuming and it involves IO,
         // so we execute it in async task
