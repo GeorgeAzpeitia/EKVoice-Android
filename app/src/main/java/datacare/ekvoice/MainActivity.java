@@ -1,6 +1,5 @@
 package datacare.ekvoice;
 
-import static android.widget.Toast.makeText;
 import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
 import java.io.File;
@@ -18,14 +17,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import edu.cmu.pocketsphinx.Assets;
 import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
-import android.speech.*;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 
 public class MainActivity extends Activity implements
         RecognitionListener {
@@ -34,9 +30,8 @@ public class MainActivity extends Activity implements
     private TextView speechOutput;
     private SpeechRecognizer recognizer;
     boolean listening = false;
-    private NetworkInfo ni;
 
-    SpeechWrapper onlineSpeech;
+    SpeechWrapper onlineSpeech = new SpeechWrapper();
 
     @Override
     public void onCreate(Bundle state) {
@@ -51,9 +46,11 @@ public class MainActivity extends Activity implements
             @Override
             public void onClick(View v) {
                 //Checks for network via mobile and wifi
-                if (testNetwork()) {
-                    promptOnlineSpeechInput();
+                if (isInternetConnected(getApplicationContext())) {
+                    onlineSpeech.promptOnlineSpeechInput();
                 } else {
+                    Toast.makeText(getApplicationContext(), "No Internet", Toast.LENGTH_SHORT).show();
+
                     //offline speech to text.
                 }
             }
@@ -85,26 +82,17 @@ public class MainActivity extends Activity implements
                 }
             }
         }.execute();
+    }
 
-//        startSpeech.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                recognizer.stop();
-//            }
-//        });
-    }//onCreate
 
     //returns true if there is network false if not
-    public boolean testNetwork(){
-        ConnectivityManager cm = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-        ni = cm.getActiveNetworkInfo(); //prob
-        if (ni != null && ni.isConnected()){
-            return true;
-        }else{
-            return false;
-        }
+    public static boolean isInternetConnected(Context context){
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
+
 
     public void promptOnlineSpeechInput(){
         onlineSpeech.promptOnlineSpeechInput();
