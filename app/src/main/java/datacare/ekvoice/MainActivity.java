@@ -5,14 +5,20 @@ import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 import java.io.File;
 import java.io.IOException;
 import java.lang.Override;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,8 +29,9 @@ import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
 
-public class MainActivity extends Activity implements
+public class MainActivity extends AppCompatActivity implements
         RecognitionListener {
+    private final int REQ_CODE_SPEECH_INPUT = 100;
 
     Button startSpeech;
     private TextView speechOutput;
@@ -47,7 +54,7 @@ public class MainActivity extends Activity implements
             public void onClick(View v) {
                 //Checks for network via mobile and wifi
                 if (isInternetConnected(getApplicationContext())) {
-                    onlineSpeech.promptOnlineSpeechInput();
+                    promptOnlineSpeechInput();
                 } else {
                     Toast.makeText(getApplicationContext(), "No Internet", Toast.LENGTH_SHORT).show();
 
@@ -95,8 +102,29 @@ public class MainActivity extends Activity implements
 
 
     public void promptOnlineSpeechInput(){
-        onlineSpeech.promptOnlineSpeechInput();
-        speechOutput = onlineSpeech.getNote();
+
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+
+        try{
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(), "Couldnt record", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        TextView note = (TextView) findViewById(R.id.textOutput);
+
+        if (resultCode == REQ_CODE_SPEECH_INPUT && data != null){
+            ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            note.setText(results.get(0));
+        }
+
     }
 
     @Override

@@ -16,12 +16,13 @@ import java.util.Locale;
 import java.util.ArrayList;
 import java.lang.Override;
 
-public class SpeechWrapper extends AppCompatActivity{
+public class SpeechWrapper{
     private TextView note;
     private Button recordButton;
     private final int REQ_CODE_SPEECH_INPUT = 100;
-
+    /*
     public void promptOnlineSpeechInput(){
+
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
@@ -46,5 +47,5 @@ public class SpeechWrapper extends AppCompatActivity{
         }
 
     }
-
+    */
 }
