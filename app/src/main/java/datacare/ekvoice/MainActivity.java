@@ -31,41 +31,35 @@ import edu.cmu.pocketsphinx.SpeechRecognizer;
 
 public class MainActivity extends AppCompatActivity implements
         RecognitionListener {
-    private final int REQ_CODE_SPEECH_INPUT = 100;
 
-    Button startSpeech;
+    private Button startSpeech;
     private TextView speechOutput;
     private SpeechRecognizer recognizer;
-    boolean listening = false;
-
-    SpeechWrapper onlineSpeech = new SpeechWrapper();
+    private Activity mainHandle = this;
+    private SpeechWrapper onlineSpeech = new SpeechWrapper();
 
     @Override
-    public void onCreate(Bundle state) {
+    public void onCreate(final Bundle state) {
+        //standard startup tasks
         super.onCreate(state);
-
         setContentView(R.layout.activity_main);
+
+        //initialize view reference
         speechOutput = ((TextView) findViewById(R.id.textOutput));
         speechOutput.setText("Preparing the recognizer");
         startSpeech = (Button) findViewById(R.id.listenButton);
 
+        //set the button to listen if pressed
         startSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Checks for network via mobile and wifi
-                if (isInternetConnected(getApplicationContext())) {
-                    promptOnlineSpeechInput();
-                } else {
-                    Toast.makeText(getApplicationContext(), "No Internet", Toast.LENGTH_SHORT).show();
-
-                    //offline speech to text.
-                }
+                startSpeech.setEnabled(false);
+                onlineSpeech.promptOnlineSpeechInput(mainHandle);
             }
         });
 
         // Recognizer initialization is a time-consuming and it involves IO,
         // so we execute it in async task
-
         new AsyncTask<Void, Void, Exception>() {
             @Override
             protected Exception doInBackground(Void... params) {
@@ -85,44 +79,25 @@ public class MainActivity extends AppCompatActivity implements
                     speechOutput.setText("Failed to init recognizer " + result);
                 } else {
                     speechOutput.setText("Done");
-                    switchSearch("wakeup");
+                    //this starts pocketsphinx listening
+                    //switchSearch("wakeup");
                 }
             }
         }.execute();
+
     }
 
-
-    //returns true if there is network false if not
-    public static boolean isInternetConnected(Context context){
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
-    }
-
-
-    public void promptOnlineSpeechInput(){
-
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-
-        try{
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-        } catch (ActivityNotFoundException a) {
-            Toast.makeText(getApplicationContext(), "Couldnt record", Toast.LENGTH_SHORT).show();
-        }
-    }
-
+    //This needs to be part of main in order for the speech function to work. Which makes sense, the SpeechWrapper
+    //will get the speech and spit out text, it's up to the implementation to decide what to do with it.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        startSpeech.setEnabled(true);
         super.onActivityResult(requestCode, resultCode, data);
-
         TextView note = (TextView) findViewById(R.id.textOutput);
 
-        if (resultCode == REQ_CODE_SPEECH_INPUT && data != null){
-            ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            note.setText(results.get(0));
+        ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+        note.setText(results.get(0));
+        if (data != null){
         }
 
     }
