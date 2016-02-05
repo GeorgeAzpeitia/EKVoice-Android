@@ -23,14 +23,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Handler;
-import android.os.Message;
 
 import edu.cmu.pocketsphinx.Assets;
 import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
-
 
 public class MainActivity extends AppCompatActivity implements
         RecognitionListener {
@@ -40,13 +37,6 @@ public class MainActivity extends AppCompatActivity implements
     private SpeechRecognizer recognizer;
     private Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper();
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            speechOutput.setBackgroundColor(30);
-
-        }
-    };
 
     @Override
     public void onCreate(final Bundle state) {
@@ -63,31 +53,6 @@ public class MainActivity extends AppCompatActivity implements
         startSpeech.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Runnable r = new Runnable() {
-                    @Override
-                    public void run() {
-                        long interval = System.currentTimeMillis() + 1;
-                        boolean loop = true;
-                        for(;loop;) {
-                            while (System.currentTimeMillis() < interval) {
-                                synchronized (this) {
-                                    try {
-                                        wait(interval - System.currentTimeMillis());
-                                        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                                        if(cm.getActiveNetworkInfo() == null) {
-                                            handler.sendEmptyMessage(0);
-                                            loop = false;
-                                        }
-                                    } catch (Exception e) {}
-                                }
-                            }
-
-                        }
-                    }
-                };
-
-                Thread checkNetworkLoss = new Thread(r);
-                checkNetworkLoss.start();
                 startSpeech.setEnabled(false);
                 onlineSpeech.promptOnlineSpeechInput(mainHandle);
             }
