@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 startSpeech.setEnabled(false);
                 //Workhorse function for our speech wrapper, will call all the necessary functions as
                 //needed.
-                onlineSpeech.promptOnlineSpeechInput(mainHandle);
+                onlineSpeech.promptOnlineSpeechInput(mainHandle, speechOutput, startSpeech);
             }
         });
     }
@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         if (data != null){
         }
 
+    }
+
+    public void outputSpeech(String speech){
+        speechOutput.setText(speech);
     }
 
     @Override
