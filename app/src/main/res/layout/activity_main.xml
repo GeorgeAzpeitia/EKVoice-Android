@@ -12,16 +12,35 @@
     android:baselineAligned="false"
     android:gravity="bottom">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:id="@+id/textOutput" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Push to start listening"
-        android:id="@+id/listenButton"
-        android:layout_weight="0.22" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="0.35"
+            android:id="@+id/textOutput" />
+
+        <Button
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:text="Push to start listening"
+            android:id="@+id/listenButton"
+            android:layout_alignTop="@+id/sphinxButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch to Offline Mode"
+            android:id="@+id/sphinxButton"
+            android:layout_gravity="right"
+            android:nestedScrollingEnabled="false"
+            android:onClick="onSphinxRequest"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
 </LinearLayout>

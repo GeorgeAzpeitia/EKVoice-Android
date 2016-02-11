@@ -31,7 +31,7 @@ import edu.cmu.pocketsphinx.SpeechRecognizer;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button startSpeech;
+    private Button startSpeech, switchToSphinx;
     private TextView speechOutput;
     private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         speechOutput = ((TextView) findViewById(R.id.textOutput));
         speechOutput.setText("Preparing the recognizer");
         startSpeech = (Button) findViewById(R.id.listenButton);
+        switchToSphinx = (Button) findViewById(R.id.sphinxButton);
 
         //disable the button and start listening if pressed
         startSpeech.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
         if (data != null){
         }
 
+    }
+
+    public void onSphinxRequest(View view){
+        Intent intent = new Intent(this, SphinxActivity.class);
+        startActivity(intent);
     }
 
     public void outputSpeech(String speech){
