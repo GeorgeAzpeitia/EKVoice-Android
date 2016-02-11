@@ -27,14 +27,15 @@ import edu.cmu.pocketsphinx.Assets;
 public class SpeechWrapper{
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private SphinxWrapper sphinx = new SphinxWrapper();
+    private Activity mainHandle = null;
 
-    //This currently checks internet connectivity through the wifi and the phone antenna
 
 
     public SpeechWrapper(final Activity main){
 
         // Recognizer initialization is a time-consuming and it involves IO,
         // so we execute it in async task
+        mainHandle = main;
         new AsyncTask<Void, Void, Exception>() {
             @Override
             protected Exception doInBackground(Void... params) {
@@ -61,6 +62,7 @@ public class SpeechWrapper{
         }.execute();
 
     }
+    //This currently checks internet connectivity through the wifi and the phone antenna
     //It only checks to see if it has a connection not if there is a working path to the internet
 
     public static boolean isInternetConnected(Context context){
@@ -71,7 +73,7 @@ public class SpeechWrapper{
     }
 
     //This will take in the calling method as an activity reference it then calls the speech activity using the parent activity
-    public void promptOnlineSpeechInput(Activity loader){
+    public void promptOnlineSpeechInput(Activity loader, TextView speechOut, Button speechBut){
 
         if(isInternetConnected(loader.getApplicationContext())){
 
@@ -87,8 +89,8 @@ public class SpeechWrapper{
             }
 
         }else {
-
-            Toast.makeText(loader.getApplicationContext(), "No Internet", Toast.LENGTH_SHORT).show();
+            sphinx.startListening(speechOut, speechBut);
+            Toast.makeText(loader.getApplicationContext(), "No Internet, Sphinx is listening.", Toast.LENGTH_SHORT).show();
         }
     }
 
