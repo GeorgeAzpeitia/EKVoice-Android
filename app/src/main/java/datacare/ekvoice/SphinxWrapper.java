@@ -2,6 +2,8 @@ package datacare.ekvoice; /**
  * Created by george on 1/30/16.
  */
 import android.app.Activity;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,14 +17,11 @@ import edu.cmu.pocketsphinx.SpeechRecognizer;
 
 import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
-public class SphinxWrapper implements RecognitionListener {
+public class SphinxWrapper extends AppCompatActivity implements RecognitionListener {
 
     private SpeechRecognizer recognizer;
-    private TextView speech = null;
-    private Button speechButton = null;
-    public void startListening(TextView speechOut, Button setBtn){
-        speech = speechOut;
-        speechButton = setBtn;
+
+    public void startListening(){
     }
 
     @Override
@@ -42,11 +41,17 @@ public class SphinxWrapper implements RecognitionListener {
      */
     @Override
     public void onResult(Hypothesis hypothesis){
+
         if(hypothesis != null){
             String out = hypothesis.getHypstr();
-            speech.setText(out);
+            Intent returnSpeech = new Intent();
+            returnSpeech.putExtra("EXTRA_SPHINX", out);
+            setResult(1, returnSpeech);
+            finish();
+        }else{
+            setResult(-1);
+            finish();
         }
-        speechButton.setEnabled(true);
     }
     /**
      * In partial result we get quick updates about current hypothesis. In

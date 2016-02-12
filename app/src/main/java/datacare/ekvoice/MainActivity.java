@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         //standard startup tasks
         super.onCreate(state);
         setContentView(R.layout.activity_main);
-
         //initialize view references
         speechOutput = ((TextView) findViewById(R.id.textOutput));
         speechOutput.setText("Preparing the recognizer");
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 startSpeech.setEnabled(false);
                 //Workhorse function for our speech wrapper, will call all the necessary functions as
                 //needed.
-                onlineSpeech.promptOnlineSpeechInput(mainHandle, speechOutput, startSpeech);
+                onlineSpeech.promptOnlineSpeechInput(mainHandle);
             }
         });
     }
@@ -68,10 +67,14 @@ public class MainActivity extends AppCompatActivity {
         startSpeech.setEnabled(true);
         super.onActivityResult(requestCode, resultCode, data);
         TextView note = (TextView) findViewById(R.id.textOutput);
-
-        ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-        note.setText(results.get(0));
-        if (data != null){
+        if( data != null){
+            if(requestCode == 100){
+                ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                note.setText(results.get(0));
+            }else{
+                String sphinxResults = data.getStringExtra("EXTRA_SPHINX");
+                note.setText(sphinxResults);
+            }
         }
 
     }

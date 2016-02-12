@@ -73,7 +73,7 @@ public class SpeechWrapper{
     }
 
     //This will take in the calling method as an activity reference it then calls the speech activity using the parent activity
-    public void promptOnlineSpeechInput(Activity loader, TextView speechOut, Button speechBut){
+    public void promptOnlineSpeechInput(Activity loader){
 
         if(isInternetConnected(loader.getApplicationContext())){
 
@@ -89,7 +89,7 @@ public class SpeechWrapper{
             }
 
         }else {
-            sphinx.startListening(speechOut, speechBut);
+            sphinx.startListening();
             Toast.makeText(loader.getApplicationContext(), "No Internet, Sphinx is listening.", Toast.LENGTH_SHORT).show();
         }
     }
