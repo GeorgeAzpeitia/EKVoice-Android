@@ -10,18 +10,44 @@
     android:paddingTop="4dp"
     tools:context="georgeazpeitia.speechrecognizer_demo_app.MainSpeechPage"
     android:baselineAligned="false"
-    android:gravity="bottom">
+    android:gravity="bottom"
+    android:weightSum="1">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:id="@+id/textOutput" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Push to start listening"
-        android:id="@+id/listenButton"
-        android:layout_weight="0.22" />
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="0.35"
+            android:id="@+id/textOutput"
+            android:layout_above="@+id/listenButton"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:text="Record"
+            android:id="@+id/listenButton"
+            android:layout_alignTop="@+id/sphinxButton"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offline Mode"
+            android:id="@+id/sphinxButton"
+            android:layout_gravity="right"
+            android:nestedScrollingEnabled="false"
+            android:onClick="onSphinxRequest"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
 </LinearLayout>
