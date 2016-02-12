@@ -53,15 +53,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startSpeech.setEnabled(false);
-                //Workhorse function for our speech wrapper, will call all the necessary functions as
-                //needed.
+                //Workhorse function for our speech wrapper, will call all the necessary
+                //functions as needed.
                 onlineSpeech.promptOnlineSpeechInput(mainHandle);
             }
         });
     }
 
-    //This needs to be part of main in order for the speech function to work. Which makes sense, the SpeechWrapper
-    //will get the speech and spit out text, it's up to the implementation to decide what to do with it.
+    //This needs to be part of main in order for the speech function to work. Which makes sense,
+    //the SpeechWrapper will get the speech and spit out text, it's up to the implementation to
+    //decide what to do with it.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         startSpeech.setEnabled(true);
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSphinxRequest(View view){
-        Intent intent = new Intent(this, SphinxActivity.class);
+        Intent intent = new Intent(this, SphinxWrapper.class);
         startActivity(intent);
     }
 
