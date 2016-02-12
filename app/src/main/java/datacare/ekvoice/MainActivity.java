@@ -81,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSphinxRequest(View view){
-        Intent intent = new Intent(this, SphinxWrapper.class);
-        startActivity(intent);
+        if(onlineSpeech.sphinxReady) {
+            Intent intent = new Intent(this, SphinxWrapper.class);
+            startActivity(intent);
+        }
     }
 
     public void outputSpeech(String speech){
