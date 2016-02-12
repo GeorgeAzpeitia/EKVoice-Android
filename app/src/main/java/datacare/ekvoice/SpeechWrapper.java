@@ -30,7 +30,7 @@ public class SpeechWrapper{
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private Activity mainHandle = null;
     public static SpeechRecognizer sphinxRecognizer = null;
-    private boolean sphinxReady = false;
+    public boolean sphinxReady = false;
 
     public SpeechWrapper(final Activity main){
         // Recognizer initialization is a time-consuming and it involves IO,
@@ -90,9 +90,11 @@ public class SpeechWrapper{
             }
 
         }else {
-            Intent intent = new Intent(loader, SphinxWrapper.class);
-            loader.startActivityForResult(intent, 10);
-            Toast.makeText(loader.getApplicationContext(), "No Internet, Sphinx is listening.", Toast.LENGTH_SHORT).show();
+            if(sphinxReady) {
+                Intent intent = new Intent(loader, SphinxWrapper.class);
+                loader.startActivityForResult(intent, 10);
+                Toast.makeText(loader.getApplicationContext(), "No Internet, Sphinx is listening.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
