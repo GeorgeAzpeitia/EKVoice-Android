@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
+    private String holder;
+    private TextView loadingMessage;
 
     @Override
     public void onCreate(final Bundle state) {
@@ -44,9 +46,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //initialize view references
         speechOutput = ((TextView) findViewById(R.id.textOutput));
-        speechOutput.setText("Preparing the recognizer");
         startSpeech = (Button) findViewById(R.id.listenButton);
         switchToSphinx = (Button) findViewById(R.id.sphinxButton);
+        loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
+
+        holder = "Loading Offline Mode...";
+        loadingMessage.setText(holder);
+
+        new AsyncTask<Void, Void, Exception>() {
+            @Override
+            protected Exception doInBackground(Void... params) {
+                while (holder.equals("Loading Offline Mode...")) {
+                    holder = onlineSpeech.getLoadingMessage();
+                }
+                return null;
+            }
+
+            protected void onPostExecute(Exception result) {
+                if (result != null){
+                    loadingMessage.setText("Failed");
+                } else {
+                    holder = "Ready";
+                    loadingMessage.setText(holder);
+                }
+            }
+        }.execute();
 
         //disable the button and start listening if pressed
         startSpeech.setOnClickListener(new View.OnClickListener() {
