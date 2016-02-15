@@ -36,59 +36,76 @@ public class MainActivity extends AppCompatActivity {
     private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
+    private String holder;
+    private TextView loadingMessage;
 
     @Override
     public void onCreate(final Bundle state) {
         //standard startup tasks
         super.onCreate(state);
         setContentView(R.layout.activity_main);
-
         //initialize view references
-        speechOutput = ((TextView) findViewById(R.id.textOutput));
-        speechOutput.setText("Preparing the recognizer");
+        speechOutput = (TextView) findViewById(R.id.textOutput);
         startSpeech = (Button) findViewById(R.id.listenButton);
         switchToSphinx = (Button) findViewById(R.id.sphinxButton);
+        loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
 
-        //disable the button and start listening if pressed
-        startSpeech.setOnClickListener(new View.OnClickListener() {
+        holder = "Loading Offline Mode...";
+        loadingMessage.setText(holder);
+
+        new AsyncTask<Void, Void, Exception>() {
             @Override
-            public void onClick(View v) {
-                startSpeech.setEnabled(false);
-                //Workhorse function for our speech wrapper, will call all the necessary functions as
-                //needed.
-                onlineSpeech.promptOnlineSpeechInput(mainHandle, speechOutput, startSpeech);
+            protected Exception doInBackground(Void... params) {
+                while (holder.equals("Loading Offline Mode...")) {
+                    holder = onlineSpeech.getLoadingMessage();
+                }
+                return null;
             }
-        });
+
+            protected void onPostExecute(Exception result) {
+                if (result != null){
+                    loadingMessage.setText("Failed");
+                } else {
+                    holder = "Ready";
+                    loadingMessage.setText(holder);
+                }
+            }
+        }.execute();
     }
 
-    //This needs to be part of main in order for the speech function to work. Which makes sense, the SpeechWrapper
-    //will get the speech and spit out text, it's up to the implementation to decide what to do with it.
+    //This needs to be part of main in order for the speech function to work. Which makes sense,
+    //the SpeechWrapper will get the speech and spit out text, it's up to the implementation to
+    //decide what to do with it.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         startSpeech.setEnabled(true);
         super.onActivityResult(requestCode, resultCode, data);
         TextView note = (TextView) findViewById(R.id.textOutput);
-
-        ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-        note.setText(results.get(0));
-        if (data != null){
+        if( data != null){
+            if(requestCode == 100){
+                ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                note.setText(results.get(0));
+            }else{
+                String sphinxResults = data.getStringExtra("EXTRA_SPHINX");
+                note.setText(sphinxResults);
+            }
         }
+    }
 
+    public void onlineSpeechRequest(View view){
+        onlineSpeech.promptOnlineSpeechInput(mainHandle);
     }
 
     public void onSphinxRequest(View view){
-        Intent intent = new Intent(this, SphinxActivity.class);
-        startActivity(intent);
-    }
-
-    public void outputSpeech(String speech){
-        speechOutput.setText(speech);
+        if(onlineSpeech.sphinxReady) {
+            Intent intent = new Intent(this, SphinxWrapper.class);
+            startActivity(intent);
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        onlineSpeech.sphinxDestroy();
     }
 
 }
