@@ -58,8 +58,10 @@ public class SpeechWrapper{
                 }
             }
         }.execute();
-
     }
+
+    public String getLoadingMessage(){ return loadingMessage; }
+
     //This currently checks internet connectivity through the wifi and the phone antenna
     //It only checks to see if it has a connection not if there is a working path to the internet
 
@@ -70,29 +72,26 @@ public class SpeechWrapper{
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 
-    public String getLoadingMessage(){ return loadingMessage; }
-
-    //This will take in the calling method as an activity reference it then calls the speech activity using the parent activity
+    //This will take in the calling method as an activity reference it then calls the speech
+    // activity using the parent activity
     public void promptOnlineSpeechInput(Activity loader){
-
         if(isInternetConnected(loader.getApplicationContext())){
-
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                            RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 
             try{
                 loader.startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
             } catch (ActivityNotFoundException a) {
-
-                Toast.makeText(loader.getApplicationContext(), "Couldnt record", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loader.getApplicationContext(), "Couldn't record", Toast.LENGTH_SHORT).show();
             }
 
-        }else {
+        } else {
             if(sphinxReady) {
                 Intent intent = new Intent(loader, SphinxWrapper.class);
                 loader.startActivityForResult(intent, 10);
-                Toast.makeText(loader.getApplicationContext(), "No Internet, Sphinx is listening.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loader.getApplicationContext(), "No Internet, Offline Mode Enabled", Toast.LENGTH_SHORT).show();
             }
         }
     }

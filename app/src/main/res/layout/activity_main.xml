@@ -36,7 +36,8 @@
             android:text="Record"
             android:id="@+id/listenButton"
             android:layout_alignTop="@+id/sphinxButton"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="onlineSpeechRequest" />
 
         <Button
             android:layout_width="wrap_content"

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(state);
         setContentView(R.layout.activity_main);
         //initialize view references
-        speechOutput = ((TextView) findViewById(R.id.textOutput));
+        speechOutput = (TextView) findViewById(R.id.textOutput);
         startSpeech = (Button) findViewById(R.id.listenButton);
         switchToSphinx = (Button) findViewById(R.id.sphinxButton);
         loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
@@ -71,17 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }.execute();
-
-        //disable the button and start listening if pressed
-        startSpeech.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startSpeech.setEnabled(false);
-                //Workhorse function for our speech wrapper, will call all the necessary
-                //functions as needed.
-                onlineSpeech.promptOnlineSpeechInput(mainHandle);
-            }
-        });
     }
 
     //This needs to be part of main in order for the speech function to work. Which makes sense,
@@ -101,7 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 note.setText(sphinxResults);
             }
         }
+    }
 
+    public void onlineSpeechRequest(View view){
+        onlineSpeech.promptOnlineSpeechInput(mainHandle);
     }
 
     public void onSphinxRequest(View view){
@@ -109,10 +101,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SphinxWrapper.class);
             startActivity(intent);
         }
-    }
-
-    public void outputSpeech(String speech){
-        speechOutput.setText(speech);
     }
 
     @Override
