@@ -26,6 +26,9 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sphinx);
+    }
+
+    public void offlineSpeechRequest(){
         SpeechWrapper.sphinxRecognizer.addListener(this);
         SpeechWrapper.sphinxRecognizer.startListening("engl");
     }
@@ -47,7 +50,6 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
      */
     @Override
     public void onResult(Hypothesis hypothesis){
-
         if(hypothesis != null){
             String out = hypothesis.getHypstr();
             Intent returnSpeech = new Intent();
