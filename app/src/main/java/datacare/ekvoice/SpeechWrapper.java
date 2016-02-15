@@ -66,7 +66,8 @@ public class SpeechWrapper{
     //It only checks to see if it has a connection not if there is a working path to the internet
 
     public static boolean isInternetConnected(Context context){
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService
+                                                        (Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
@@ -84,14 +85,16 @@ public class SpeechWrapper{
             try{
                 loader.startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
             } catch (ActivityNotFoundException a) {
-                Toast.makeText(loader.getApplicationContext(), "Couldn't record", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loader.getApplicationContext(), "Couldn't record",
+                                                                Toast.LENGTH_SHORT).show();
             }
 
         } else {
             if(sphinxReady) {
                 Intent intent = new Intent(loader, SphinxWrapper.class);
                 loader.startActivityForResult(intent, 10);
-                Toast.makeText(loader.getApplicationContext(), "No Internet, Offline Mode Enabled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(loader.getApplicationContext(), "No Internet, Offline Mode Enabled",
+                                                                        Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -105,13 +108,15 @@ public class SpeechWrapper{
                 .setAcousticModel(new File(assetsDir, "en-us"))
                 .setDictionary(new File(assetsDir, "cmudict-en-us.dict"))
 
-                        // To disable logging of raw audio comment out this call (takes a lot of space on the device)
-                        // .setRawLogDir(assetsDir)
+                        // To disable logging of raw audio comment out this call
+                        // (takes a lot of space on the device) .setRawLogDir(assetsDir)
 
-                        // Threshold to tune for keyphrase to balance between false alarms and misses
+                        // Threshold to tune for keyphrase to balance between
+                        // false alarms and misses
                 .setKeywordThreshold(1e-45f)
 
-                        // Use context-independent phonetic search, context-dependent is too slow for mobile
+                        // Use context-independent phonetic search, context-dependent is
+                        // too slow for mobile
                 .setBoolean("-allphone_ci", true)
                 .getRecognizer();
 
@@ -119,11 +124,11 @@ public class SpeechWrapper{
          * They are added here for demonstration. You can leave just one.
          */
 
-
-        // The way these calls work is the first variable is just the name of the model you want to activate when
-        // you call recognizer.startListening(String name);
-        // There's a couple of different models you can call this one is a natural language grammar search, I think
-        // it will probably be what we end up using when we actually implement this in the language.
+        // The way these calls work is the first variable is just the name of the model
+        // you want to activate when you call recognizer.startListening(String name);
+        // There's a couple of different models you can call this one is a natural language
+        // grammar search, I think it will probably be what we end up using when we actually
+        // implement this in the language.
 
         // Create language model search
 

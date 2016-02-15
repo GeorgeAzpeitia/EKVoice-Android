@@ -1,4 +1,5 @@
-package datacare.ekvoice; /**
+package datacare.ekvoice;
+/**
  * Created by george on 1/30/16.
  */
 import android.app.Activity;
@@ -52,10 +53,8 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
             Intent returnSpeech = new Intent();
             returnSpeech.putExtra("EXTRA_SPHINX", out);
             setResult(1, returnSpeech);
-            finish();
         }else{
             setResult(-1);
-            finish();
         }
     }
 
@@ -78,7 +77,6 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
     public void onError(Exception e){
 
     }
-
 
     public void sphinxDestroy(){
         SpeechWrapper.sphinxRecognizer.cancel();
