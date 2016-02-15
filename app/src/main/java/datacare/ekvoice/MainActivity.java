@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
+    private String holder;
+    private TextView loadingMessage;
 
     @Override
     public void onCreate(final Bundle state) {
@@ -43,21 +45,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(state);
         setContentView(R.layout.activity_main);
         //initialize view references
-        speechOutput = ((TextView) findViewById(R.id.textOutput));
-        speechOutput.setText("Preparing the recognizer");
+        speechOutput = (TextView) findViewById(R.id.textOutput);
         startSpeech = (Button) findViewById(R.id.listenButton);
         switchToSphinx = (Button) findViewById(R.id.sphinxButton);
+        loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
 
-        //disable the button and start listening if pressed
-        startSpeech.setOnClickListener(new View.OnClickListener() {
+        holder = "Loading Offline Mode...";
+        loadingMessage.setText(holder);
+
+        new AsyncTask<Void, Void, Exception>() {
             @Override
-            public void onClick(View v) {
-                startSpeech.setEnabled(false);
-                //Workhorse function for our speech wrapper, will call all the necessary
-                //functions as needed.
-                onlineSpeech.promptOnlineSpeechInput(mainHandle);
+            protected Exception doInBackground(Void... params) {
+                while (holder.equals("Loading Offline Mode...")) {
+                    holder = onlineSpeech.getLoadingMessage();
+                }
+                return null;
             }
-        });
+
+            protected void onPostExecute(Exception result) {
+                if (result != null){
+                    loadingMessage.setText("Failed");
+                } else {
+                    holder = "Ready";
+                    loadingMessage.setText(holder);
+                }
+            }
+        }.execute();
     }
 
     //This needs to be part of main in order for the speech function to work. Which makes sense,
@@ -77,7 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 note.setText(sphinxResults);
             }
         }
+    }
 
+    public void onlineSpeechRequest(View view){
+        onlineSpeech.promptOnlineSpeechInput(mainHandle);
     }
 
     public void onSphinxRequest(View view){
@@ -85,10 +101,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, SphinxWrapper.class);
             startActivity(intent);
         }
-    }
-
-    public void outputSpeech(String speech){
-        speechOutput.setText(speech);
     }
 
     @Override

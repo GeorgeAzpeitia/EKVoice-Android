@@ -29,11 +29,6 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
         SpeechWrapper.sphinxRecognizer.startListening("engl");
     }
 
-
-    public void startListening(){
-
-    }
-
     @Override
     public void onBeginningOfSpeech(){
     }
@@ -63,6 +58,7 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
             finish();
         }
     }
+
     /**
      * In partial result we get quick updates about current hypothesis. In
      * keyword spotting mode we can react here, in other modes we need to wait

@@ -27,8 +27,8 @@
             android:layout_gravity="top"
             android:layout_weight="0.35"
             android:id="@+id/textOutput"
-            android:layout_above="@+id/listenButton"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/sphinxLoadingMessage" />
 
         <Button
             android:layout_width="137dp"
@@ -36,7 +36,8 @@
             android:text="Record"
             android:id="@+id/listenButton"
             android:layout_alignTop="@+id/sphinxButton"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:onClick="onlineSpeechRequest" />
 
         <Button
             android:layout_width="wrap_content"
@@ -47,6 +48,14 @@
             android:nestedScrollingEnabled="false"
             android:onClick="onSphinxRequest"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/sphinxLoadingMessage"
+            android:layout_above="@+id/sphinxButton"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
