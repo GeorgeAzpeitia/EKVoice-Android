@@ -15,7 +15,8 @@
         android:text="Record"
         android:id="@+id/sphinxRecord"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="offlineSpeechRequest" />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,4 +35,13 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/sphinxRecord"
         android:layout_alignEnd="@+id/button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:id="@+id/sphinxStop"
+        android:layout_below="@+id/sphinxTextOut"
+        android:layout_centerHorizontal="true"
+        android:enabled="false" />
 </RelativeLayout>

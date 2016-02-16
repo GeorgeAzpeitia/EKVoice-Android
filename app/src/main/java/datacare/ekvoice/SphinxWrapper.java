@@ -21,13 +21,27 @@ import edu.cmu.pocketsphinx.SpeechRecognizer;
 import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
 public class SphinxWrapper extends AppCompatActivity implements RecognitionListener {
-
+    private TextView sphinxOut;
+    private Button stop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sphinx);
+        sphinxOut = (TextView) findViewById(R.id.sphinxTextOut);
+        stop = (Button) findViewById(R.id.sphinxStop);
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpeechWrapper.sphinxRecognizer.stop();
+                stop.setEnabled(false);
+            }
+        });
+    }
+
+    public void offlineSpeechRequest(View view){
         SpeechWrapper.sphinxRecognizer.addListener(this);
-        SpeechWrapper.sphinxRecognizer.startListening("engl");
+        stop.setEnabled(true);
+        SpeechWrapper.sphinxRecognizer.startListening("engl", 3000);
     }
 
     @Override
@@ -47,12 +61,12 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
      */
     @Override
     public void onResult(Hypothesis hypothesis){
-
         if(hypothesis != null){
             String out = hypothesis.getHypstr();
             Intent returnSpeech = new Intent();
             returnSpeech.putExtra("EXTRA_SPHINX", out);
             setResult(1, returnSpeech);
+            sphinxOut.setText(out);
         }else{
             setResult(-1);
         }
@@ -65,12 +79,16 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
      */
     @Override
     public void onPartialResult(Hypothesis hypothesis){
+        if(hypothesis != null){
+            String hyp = hypothesis.getHypstr();
+            sphinxOut.setText(hyp);
+        }
 
     }
 
     @Override
     public void onTimeout(){
-
+        //SpeechWrapper.sphinxRecognizer.stop();
     }
 
     @Override
@@ -78,6 +96,11 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
 
     }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        SpeechWrapper.sphinxRecognizer.cancel();
+    }
     public void sphinxDestroy(){
         SpeechWrapper.sphinxRecognizer.cancel();
         SpeechWrapper.sphinxRecognizer.shutdown();
