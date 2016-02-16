@@ -22,15 +22,25 @@ import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
 public class SphinxWrapper extends AppCompatActivity implements RecognitionListener {
     private TextView sphinxOut;
+    private Button stop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sphinx);
         sphinxOut = (TextView) findViewById(R.id.sphinxTextOut);
+        stop = (Button) findViewById(R.id.sphinxStop);
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SpeechWrapper.sphinxRecognizer.stop();
+                stop.setEnabled(false);
+            }
+        });
     }
 
     public void offlineSpeechRequest(View view){
         SpeechWrapper.sphinxRecognizer.addListener(this);
+        stop.setEnabled(true);
         SpeechWrapper.sphinxRecognizer.startListening("engl", 3000);
     }
 
@@ -77,7 +87,7 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
 
     @Override
     public void onTimeout(){
-
+        SpeechWrapper.sphinxRecognizer.stop();
     }
 
     @Override
