@@ -66,6 +66,7 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
             Intent returnSpeech = new Intent();
             returnSpeech.putExtra("EXTRA_SPHINX", out);
             setResult(1, returnSpeech);
+            sphinxOut.setText(out);
         }else{
             setResult(-1);
         }
@@ -87,7 +88,7 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
 
     @Override
     public void onTimeout(){
-        SpeechWrapper.sphinxRecognizer.stop();
+        //SpeechWrapper.sphinxRecognizer.stop();
     }
 
     @Override
