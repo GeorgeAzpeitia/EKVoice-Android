@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
-    private String holder;
+    private String holder = "Loading Offline Mode...";
     private TextView loadingMessage;
 
     @Override
