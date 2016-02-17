@@ -113,7 +113,7 @@ public class SpeechWrapper{
 
                         // Threshold to tune for keyphrase to balance between
                         // false alarms and misses
-                .setKeywordThreshold(1e-45f)
+                .setKeywordThreshold(1e-20f)
 
                         // Use context-independent phonetic search, context-dependent is
                         // too slow for mobile

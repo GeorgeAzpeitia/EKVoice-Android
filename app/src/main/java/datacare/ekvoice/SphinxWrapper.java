@@ -46,6 +46,7 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
 
     @Override
     public void onBeginningOfSpeech(){
+
     }
 
     /**
