@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         new AsyncTask<Void, Void, Exception>() {
             @Override
             protected Exception doInBackground(Void... params) {
-                while (holder.equals("Loading Offline Mode...")) {
-                    holder = onlineSpeech.getLoadingMessage();
-                }
+//                while (holder.equals("Loading Offline Mode...")) {
+//                    holder = onlineSpeech.getLoadingMessage();
+//                }
                 return null;
             }
 
