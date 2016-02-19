@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Record"
             android:id="@+id/listenButton"
+            android:background="#81BEF7"
             android:layout_alignTop="@+id/sphinxButton"
             android:layout_alignParentStart="true"
             android:onClick="onlineSpeechRequest" />
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Offline Mode"
             android:id="@+id/sphinxButton"
+            android:background="#81BEF7"
             android:layout_gravity="right"
             android:nestedScrollingEnabled="false"
             android:onClick="onSphinxRequest"

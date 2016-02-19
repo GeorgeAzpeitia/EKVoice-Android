@@ -9,16 +9,3 @@ en-us/noisedict
 en-us/sendump
 en-us/transition_matrices
 en-us/variances
-test/assets.lst
-test/cmudict-en-us.dict
-test/cmusphinx-5.0-en-us.lm.dmp
-test/en-us-phone.lm.bin
-test/en-us/README
-test/en-us/feat.params
-test/en-us/mdef
-test/en-us/means
-test/en-us/mixture_weights
-test/en-us/noisedict
-test/en-us/sendump
-test/en-us/transition_matrices
-test/en-us/variances
