@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSphinxRequest(View view){
         if(onlineSpeech.sphinxReady) {
             Intent intent = new Intent(this, SphinxWrapper.class);
-            startActivity(intent);
+            startActivityForResult(intent, 10);
         }
     }
 

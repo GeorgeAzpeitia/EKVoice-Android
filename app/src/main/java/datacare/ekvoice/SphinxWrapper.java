@@ -34,7 +34,6 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
             public void onClick(View v) {
                 SpeechWrapper.sphinxRecognizer.stop();
                 stop.setEnabled(false);
-                sphinxOut.setText("Interpreting...");
             }
         });
     }
@@ -63,12 +62,12 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
      */
     @Override
     public void onResult(Hypothesis hypothesis){
+        stop.setEnabled(false);
         if(hypothesis != null){
             String out = hypothesis.getHypstr();
             Intent returnSpeech = new Intent();
             returnSpeech.putExtra("EXTRA_SPHINX", out);
             setResult(1, returnSpeech);
-            sphinxOut.setText(" ");
             sphinxOut.setText(out);
         }else{
             setResult(-1);
