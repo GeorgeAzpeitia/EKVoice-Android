@@ -110,11 +110,9 @@ public class SpeechWrapper{
 
                         // To disable logging of raw audio comment out this call
                         // (takes a lot of space on the device) .setRawLogDir(assetsDir)
-
                         // Threshold to tune for keyphrase to balance between
                         // false alarms and misses
-                .setKeywordThreshold(1e-45f)
-
+                .setKeywordThreshold(1e-20f)
                         // Use context-independent phonetic search, context-dependent is
                         // too slow for mobile
                 .setBoolean("-allphone_ci", true)
@@ -151,12 +149,12 @@ public class SpeechWrapper{
         //recognizer.addGrammarSearch("wakeup", digitsGrammar);
 
         // Create language model search
-        File languageModel = new File(assetsDir, "cmusphinx-5.0-en-us.lm.dmp");
+        File languageModel = new File(assetsDir, "en-us.lm.bin");
         sphinxRecognizer.addNgramSearch("engl", languageModel);
 
         // Phonetic search
-        //File phoneticModel = new File(assetsDir, "en-phone.dmp");
-        //recognizer.addAllphoneSearch("wakeup", phoneticModel);
+//        File phoneticModel = new File(assetsDir, "en-us-phone.lm.bin");
+//        sphinxRecognizer.addAllphoneSearch("engl", phoneticModel);
     }
 
 }
