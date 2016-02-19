@@ -13,6 +13,8 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -21,6 +23,7 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +35,7 @@ import edu.cmu.pocketsphinx.SpeechRecognizer;
 public class MainActivity extends AppCompatActivity {
 
     private Button startSpeech, switchToSphinx;
-    private TextView speechOutput;
+    private EditText speechOutput;
     private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
@@ -45,13 +48,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(state);
         setContentView(R.layout.activity_main);
         //initialize view references
-        speechOutput = (TextView) findViewById(R.id.textOutput);
+        speechOutput = (EditText) findViewById(R.id.textOutput);
         startSpeech = (Button) findViewById(R.id.listenButton);
         switchToSphinx = (Button) findViewById(R.id.sphinxButton);
         loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
 
+
         holder = "Loading Offline Mode...";
         loadingMessage.setText(holder);
+        switchToSphinx.setEnabled(false);
 
         new AsyncTask<Void, Void, Exception>() {
             @Override
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     holder = "Ready";
                     loadingMessage.setText(holder);
+                    switchToSphinx.setEnabled(true);
                 }
             }
         }.execute();
