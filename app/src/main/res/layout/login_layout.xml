@@ -8,7 +8,7 @@
     style="@style/AppTheme.Login"
     android:touchscreenBlocksFocus="true"
     android:id="@+id/slideZero"
-    android:background="@drawable/menu_background">
+    android:background="@drawable/regular_menu">
 
     <EditText
         android:id="@+id/eventUsername"
