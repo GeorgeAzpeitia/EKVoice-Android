@@ -147,6 +147,7 @@ public class SpeechWrapper{
         // Create grammar-based search for digit recognition
         //File digitsGrammar = new File(assetsDir, "digits.gram");
         //recognizer.addGrammarSearch("wakeup", digitsGrammar);
+        sphinxRecognizer.addKeyphraseSearch("wakeup", "hey listen");
 
         // Create language model search
         File languageModel = new File(assetsDir, "en-us.lm.bin");

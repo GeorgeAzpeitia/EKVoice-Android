@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     holder = "Ready";
                     loadingMessage.setText(holder);
                     switchToSphinx.setEnabled(true);
+                    SpeechWrapper.sphinxRecognizer.startListening("wakeup");
                 }
             }
         }.execute();
@@ -96,9 +97,11 @@ public class MainActivity extends AppCompatActivity {
                 note.setText(sphinxResults);
             }
         }
+        SpeechWrapper.sphinxRecognizer.startListening("wakeup");
     }
 
     public void onlineSpeechRequest(View view){
+        SpeechWrapper.sphinxRecognizer.cancel();
         onlineSpeech.promptOnlineSpeechInput(mainHandle);
     }
 
