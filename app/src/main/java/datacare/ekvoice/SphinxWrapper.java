@@ -42,6 +42,7 @@ public class SphinxWrapper extends AppCompatActivity implements RecognitionListe
         SpeechWrapper.sphinxRecognizer.addListener(this);
         stop.setEnabled(true);
         SpeechWrapper.sphinxRecognizer.startListening("engl", 3000);
+        //ignore
     }
 
     @Override
