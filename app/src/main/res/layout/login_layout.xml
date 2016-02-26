@@ -8,7 +8,7 @@
     style="@style/AppTheme.Login"
     android:touchscreenBlocksFocus="true"
     android:id="@+id/slideZero"
-    android:background="@drawable/nickslogin">
+    android:background="@drawable/menu_background">
 
     <EditText
         android:id="@+id/eventUsername"
@@ -17,15 +17,15 @@
         android:hint="username"
         android:inputType="textEmailAddress"
         android:textColor="#ffffffff"
-        android:textColorHint="#ffdedede"
+        android:textColorHint="#ffffff"
         android:backgroundTint="#ffffffff"
         android:layout_above="@+id/eventPassword1"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
 
-
+        />
 
     <EditText
         android:id="@+id/eventPassword1"
@@ -33,32 +33,31 @@
         android:layout_height="wrap_content"
         android:hint="password"
         android:inputType="textPassword"
-        android:textColorHint="#ffdedede"
+        android:textColorHint="#ffffff"
         android:textColor="#ffffffff"
         android:backgroundTint="#ffffffff"
+
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
-
     <Button
         android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
         android:onClick="login_event"
         android:text="Login"
         android:layout_below="@+id/eventPassword1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="100dp" />
 
     <ImageView
-        android:layout_width="251dp"
-        android:layout_height="302dp"
+        android:layout_width="302dp"
+        android:layout_height="360dp"
         android:id="@+id/imageView"
         android:background="@drawable/loginlogo"
-        android:layout_above="@+id/eventUsername"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_above="@+id/eventUsername" />
 
 
 </RelativeLayout>
