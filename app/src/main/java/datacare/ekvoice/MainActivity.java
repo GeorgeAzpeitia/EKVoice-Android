@@ -32,31 +32,31 @@ import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
-    private Button startSpeech, switchToSphinx;
-    private EditText speechOutput;
-    private SpeechRecognizer recognizer;
+//    private Button startSpeech, switchToSphinx;
+//    private EditText speechOutput;
+//    private SpeechRecognizer recognizer;
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
     private String holder = "Loading Offline Mode...";
-    private TextView loadingMessage;
+//    private TextView loadingMessage;
 
     @Override
     public void onCreate(final Bundle state) {
         //standard startup tasks
         super.onCreate(state);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login_layout);
         //initialize view references
-        speechOutput = (EditText) findViewById(R.id.textOutput);
-        startSpeech = (Button) findViewById(R.id.listenButton);
-        switchToSphinx = (Button) findViewById(R.id.sphinxButton);
-        loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
+        //speechOutput = (EditText) findViewById(R.id.textOutput);
+        //startSpeech = (Button) findViewById(R.id.listenButton);
+        //switchToSphinx = (Button) findViewById(R.id.sphinxButton);
+        //loadingMessage = (TextView) findViewById(R.id.sphinxLoadingMessage);
 
 
         holder = "Loading Offline Mode...";
-        loadingMessage.setText(holder);
-        switchToSphinx.setEnabled(false);
+//        loadingMessage.setText(holder);
+//        switchToSphinx.setEnabled(false);
 
         new AsyncTask<Void, Void, Exception>() {
             @Override
@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
             protected void onPostExecute(Exception result) {
                 if (result != null){
-                    loadingMessage.setText("Failed");
+//                    loadingMessage.setText("Failed");
                 } else {
                     holder = "Ready";
-                    loadingMessage.setText(holder);
-                    switchToSphinx.setEnabled(true);
+//                    loadingMessage.setText(holder);
+//                    switchToSphinx.setEnabled(true);
                     SpeechWrapper.sphinxRecognizer.startListening("wakeup");
                 }
             }
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     //decide what to do with it.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        startSpeech.setEnabled(true);
+//        startSpeech.setEnabled(true);
         super.onActivityResult(requestCode, resultCode, data);
         TextView note = (TextView) findViewById(R.id.textOutput);
         if( data != null){
