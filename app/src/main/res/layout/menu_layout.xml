@@ -11,8 +11,7 @@
     android:clickable="false"
     android:touchscreenBlocksFocus="true"
     style="@style/AppTheme.Login"
-    android:background="@drawable/menu_background"
-
+    android:background="@drawable/login_wallpaper"
     android:id="@+id/slideOne">
 
     <Button
