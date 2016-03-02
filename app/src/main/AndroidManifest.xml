@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SphinxWrapper"></activity>
+        <activity android:name=".SphinxWrapper" />
+        <activity android:name=".CaseList"></activity>
     </application>
 
 </manifest>
