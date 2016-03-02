@@ -25,7 +25,15 @@
         android:layout_marginBottom="20dip"
         android:enabled="false"
         android:background="@drawable/home_button"
-         />
+
+    <TextView android:text="Home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:id="@+id/textView"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button2"
@@ -37,8 +45,17 @@
         android:layout_centerInParent="true"
         android:layout_below="@+id/button1"
         android:layout_alignEnd="@+id/button1"
+        android:layout_marginTop="13dip"
         android:background="@drawable/appointments_button"
         />
+
+    <TextView android:text="Appointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button3"
@@ -50,9 +67,17 @@
         android:layout_height="52dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="29dip"
         android:enabled="false"
          />
+
+    <TextView android:text="Cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_below="@+id/button3"
+        android:layout_alignEnd="@+id/textView" />
 
     <Button
         android:id="@+id/button4"
@@ -64,9 +89,18 @@
         android:layout_height="52dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button3"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="27dip"
         android:enabled="false"
+
         />
+
+    <TextView android:text="Comm Center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button5"
@@ -78,9 +112,17 @@
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button4"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="26dip"
         android:enabled="false"
         />
+
+    <TextView android:text="Contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_below="@+id/button5"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button6"
@@ -92,9 +134,17 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button5"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="25dip"
         android:enabled="false"
         />
+
+    <TextView android:text="Medical Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:layout_below="@+id/button6"
+        android:layout_centerHorizontal="true" />
 
     <View
         android:layout_width="fill_parent"
@@ -102,7 +152,7 @@
         android:background="#c0c0c0"
         android:layout_above="@+id/button7"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="34dp" />
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/button7"
@@ -113,9 +163,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:enabled="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/button4" />
-
-
+        android:layout_alignEnd="@+id/button5"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
