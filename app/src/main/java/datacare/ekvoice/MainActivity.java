@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
     private String holder = "Loading Offline Mode...";
+
 //    private TextView loadingMessage;
 
     @Override
@@ -58,7 +59,7 @@ public class MainActivity extends Activity {
 //        loadingMessage.setText(holder);
 //        switchToSphinx.setEnabled(false);
 
-        new AsyncTask<Void, Void, Exception>() {
+        /*new AsyncTask<Void, Void, Exception>() {
             @Override
             protected Exception doInBackground(Void... params) {
 //                while (holder.equals("Loading Offline Mode...")) {
@@ -77,7 +78,7 @@ public class MainActivity extends Activity {
                     SpeechWrapper.sphinxRecognizer.startListening("wakeup");
                 }
             }
-        }.execute();
+        }.execute(); */
     }
 
     //This needs to be part of main in order for the speech function to work. Which makes sense,
