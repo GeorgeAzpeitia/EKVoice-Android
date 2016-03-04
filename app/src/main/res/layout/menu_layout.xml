@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     tools:context=".EK-Voice"
     android:clickable="false"
     android:touchscreenBlocksFocus="true"
@@ -61,7 +61,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:onClick="cases_event"
+        android:onClick="MainActivity"
         android:background="@drawable/cases_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -70,7 +70,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button2"
         android:layout_marginTop="29dip"
-        android:enabled="false"
+
          />
 
     <TextView
