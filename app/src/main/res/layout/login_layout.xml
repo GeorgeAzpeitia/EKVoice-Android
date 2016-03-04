@@ -3,7 +3,7 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".Down"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".EK-Voice"
     android:clickable="false"
     style="@style/AppTheme.Login"
     android:touchscreenBlocksFocus="true"
@@ -16,16 +16,14 @@
         android:layout_height="wrap_content"
         android:hint="username"
         android:inputType="textEmailAddress"
-        android:textColor="#ffffffff"
-        android:textColorHint="#ffffff"
-        android:backgroundTint="#ffffffff"
+        android:textColor="#045FB4"
+        android:textColorHint="#045FB4"
+        android:backgroundTint="#045FB4"
         android:layout_above="@+id/eventPassword1"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-
-        />
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/eventPassword1"
@@ -33,10 +31,9 @@
         android:layout_height="wrap_content"
         android:hint="password"
         android:inputType="textPassword"
-        android:textColorHint="#ffffff"
-        android:textColor="#ffffffff"
-        android:backgroundTint="#ffffffff"
-
+        android:textColorHint="#045FB4"
+        android:textColor="#045FB4"
+        android:backgroundTint="#045FB4"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -47,6 +44,7 @@
         android:layout_height="60dp"
         android:onClick="login_event"
         android:text="Login"
+        android:background="#A9E2F3"
         android:layout_below="@+id/eventPassword1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp" />

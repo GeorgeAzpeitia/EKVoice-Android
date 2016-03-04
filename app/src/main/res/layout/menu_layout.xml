@@ -61,7 +61,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:onClick="MainActivity"
+        android:onClick="cases_event"
         android:background="@drawable/cases_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"

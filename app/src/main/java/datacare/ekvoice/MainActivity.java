@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
 //    private Button startSpeech, switchToSphinx;
 //    private EditText speechOutput;
 //    private SpeechRecognizer recognizer;
+    Intent intent = getIntent();
     private final Activity mainHandle = this;
     private SpeechWrapper onlineSpeech = new SpeechWrapper(mainHandle);
     private String holder = "Loading Offline Mode...";
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
         //standard startup tasks
         super.onCreate(state);
         setContentView(R.layout.login_layout);
+
         //initialize view references
         //speechOutput = (EditText) findViewById(R.id.textOutput);
         //startSpeech = (Button) findViewById(R.id.listenButton);
@@ -59,7 +61,7 @@ public class MainActivity extends Activity {
 //        loadingMessage.setText(holder);
 //        switchToSphinx.setEnabled(false);
 
-        /*new AsyncTask<Void, Void, Exception>() {
+        new AsyncTask<Void, Void, Exception>() {
             @Override
             protected Exception doInBackground(Void... params) {
 //                while (holder.equals("Loading Offline Mode...")) {
@@ -78,8 +80,10 @@ public class MainActivity extends Activity {
                     SpeechWrapper.sphinxRecognizer.startListening("wakeup");
                 }
             }
-        }.execute(); */
+        }.execute();
     }
+
+
 
     //This needs to be part of main in order for the speech function to work. Which makes sense,
     //the SpeechWrapper will get the speech and spit out text, it's up to the implementation to
