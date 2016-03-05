@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     tools:context=".EK-Voice"
     android:clickable="false"
     android:touchscreenBlocksFocus="true"
@@ -17,92 +17,174 @@
     <Button
         android:id="@+id/button1"
         android:onClick="home_event"
-        android:text="Home"
-        android:textColor="#FFFFFF"
+
         android:textSize="30sp"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dip"
-         />
+        android:enabled="false"
+        android:background="@drawable/home_button"/>
+
+    <TextView
+        android:text="Home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView3" />
 
     <Button
         android:id="@+id/button2"
         android:onClick="appointment_event"
-        android:text="Appointments"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_below="@+id/button1"
         android:layout_alignEnd="@+id/button1"
+        android:layout_marginTop="13dip"
+        android:background="@drawable/appointments_button"
         />
+
+    <TextView
+        android:text="Appointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button3"
         android:onClick="cases_event"
-        android:text="Cases"
+        android:background="@drawable/cases_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="29dip"
+
          />
+
+    <TextView
+        android:text="Cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/button3"
+        android:layout_alignStart="@+id/textView3"
+        android:id="@+id/textView2" />
 
     <Button
         android:id="@+id/button4"
         android:onClick="commCenter_event"
-        android:text="CommCenter"
+        android:background="@drawable/comm_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button3"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="27dip"
+        android:enabled="false"
+
         />
+
+    <TextView
+        android:text="Comm Center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button5"
         android:onClick="contacts_event"
-        android:text="Contacts"
+        android:background="@drawable/contacts_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button4"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="26dip"
+        android:enabled="false"
         />
+
+    <TextView
+        android:text="Contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView4" />
 
     <Button
         android:id="@+id/button6"
         android:onClick="medicalData_event"
-        android:text="Medical Data"
+        android:background="@drawable/medical_data_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button5"
-        android:layout_marginTop="20dip"
+        android:layout_marginTop="25dip"
+        android:enabled="false"
         />
+
+    <TextView
+        android:text="Medical Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:layout_below="@+id/button6"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#000000"
+        android:layout_above="@+id/button7"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="9dp"
+        android:id="@+id/view" />
 
     <Button
         android:id="@+id/button7"
-        android:onClick="myAccount_event"
-        android:text="My Account"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:layout_width="270dp"
+        android:layout_width="180dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button6"
-        android:layout_marginTop="20dip"
-        />
+        android:onClick="settings_event"
+        android:text="Settings"
+        android:background="#A9E2F3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/textView4" />
 
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:onClick="logout_event"
+        android:text="Logout"
+        android:background="#A9E2F3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_below="@+id/view" />
 
 </RelativeLayout>
