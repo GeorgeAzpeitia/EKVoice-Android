@@ -48,4 +48,21 @@ public class MenuActivity extends Activity {
         });
     }
 
+    public void cases_event() {
+
+        final Context context = this;
+
+        button = (Button) findViewById(R.id.button3);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(context, CaseList.class);
+                startActivity(intent);
+            }
+        });
+    }
+
 }
