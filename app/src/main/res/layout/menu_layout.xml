@@ -61,7 +61,6 @@
 
     <Button
         android:id="@+id/button3"
-        android:onClick="cases_event"
         android:background="@drawable/cases_button"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -71,7 +70,7 @@
         android:layout_below="@+id/button2"
         android:layout_marginTop="29dip"
 
-         />
+        android:onClick="cases_event" />
 
     <TextView
         android:text="Cases"

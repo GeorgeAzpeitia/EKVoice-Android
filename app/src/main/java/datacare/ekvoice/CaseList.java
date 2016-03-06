@@ -13,14 +13,15 @@ public class CaseList extends Activity {
     //private CaseAdapter ia;
     Intent intent = getIntent();
     private ListView listView;
-    private ArrayList<Case> caseNames = new ArrayList<>();
-    ArrayAdapter<Case> itemsAdapter =
-            new ArrayAdapter<Case>(this, android.R.layout.simple_list_item_1, caseNames);
+    private ArrayList<Case> caseNames;
+    ArrayAdapter<Case> itemsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_list);
+        caseNames = new ArrayList<>();
+        itemsAdapter = new ArrayAdapter<Case>(this, android.R.layout.simple_list_item_1, caseNames);
         Case test = new Case();
         test.firstName = "Bernard";
         test.lastName = "Sanders";

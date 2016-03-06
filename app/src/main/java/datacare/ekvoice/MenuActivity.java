@@ -27,42 +27,27 @@ public class MenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_layout);
-        appointment_event();
+        //appointment_event();
+
 
     }
 
-    public void appointment_event() {
+    public void appointment_event(View view) {
 
         final Context context = this;
+        Intent intent = new Intent(context, AppointmentActivity.class);
+        startActivity(intent);
 
-        button = (Button) findViewById(R.id.button2);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(context, AppointmentActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
-    public void cases_event() {
+    public void cases_event(View view) {
 
         final Context context = this;
-
         button = (Button) findViewById(R.id.button3);
+        Intent intent = new Intent(context, CaseList.class);
+        startActivity(intent);
 
-        button.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(context, CaseList.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }
