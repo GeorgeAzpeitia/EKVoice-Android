@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content" >
+
+<TextView
+    android:id="@+id/ignoreText"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#000000"
+    android:textAlignment="center"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:textSize="20dp"
+    android:background="#1204f8f0" />
+
+<TextView
+    android:id="@+id/employerText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="#000000"
+    android:text="description"
+    android:layout_marginTop="7dp"
+    android:layout_below="@+id/ignoreText"
+    android:layout_centerHorizontal="true" />
+
+<TextView
+    android:id="@+id/nameText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Medium Text"
+    android:layout_alignBaseline="@+id/ignoreText"
+    android:layout_alignBottom="@+id/ignoreText"
+    android:layout_centerHorizontal="true" />
+
+    <TextView
+    android:id="@+id/ignoreText4"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#000000"
+    android:textAlignment="center"
+    android:textSize="20dp"
+    android:background="#05080000"
+    android:layout_alignParentEnd="true" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:id="@+id/idText"
+        android:layout_toStartOf="@+id/nameText"
+    android:visibility="gone"
+        android:layout_alignBottom="@+id/ignoreText4" />
+
+</RelativeLayout>
