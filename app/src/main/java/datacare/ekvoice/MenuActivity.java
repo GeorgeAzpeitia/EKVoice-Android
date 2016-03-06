@@ -43,11 +43,21 @@ public class MenuActivity extends Activity {
     public void cases_event(View view) {
 
         final Context context = this;
-        button = (Button) findViewById(R.id.button3);
         Intent intent = new Intent(context, CaseList.class);
         startActivity(intent);
 
 
+    }
+
+    public void logout_event(View view) {
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    public void settings_event(View view) {
+        final Context context = this;
+        Intent intent = new Intent(context, SettingsActivity.class);
+        startActivity(intent);
     }
 
 }

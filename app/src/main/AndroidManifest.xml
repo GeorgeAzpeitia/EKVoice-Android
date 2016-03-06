@@ -52,6 +52,14 @@
             android:value=".MenuActivity" />
         </activity>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity" />
+        </activity>
+
     </application>
 
 </manifest>
