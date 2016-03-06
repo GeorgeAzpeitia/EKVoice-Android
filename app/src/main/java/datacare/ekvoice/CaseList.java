@@ -1,6 +1,7 @@
 package datacare.ekvoice;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 public class CaseList extends Activity {
     //private CustomAdapter ca;
     //private CaseAdapter ia;
+    Intent intent = getIntent();
     private ListView listView;
     private ArrayList<Case> caseNames = new ArrayList<>();
     ArrayAdapter<Case> itemsAdapter =
