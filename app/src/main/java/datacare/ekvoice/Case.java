@@ -1,14 +1,16 @@
 package datacare.ekvoice;
 
+import java.io.Serializable;
+
 /**
  * Created by Robin on 3/5/2016.
  */
-public class Case {
+public class Case implements Serializable{
     public String lastName;
     public String firstName;
     public String claimNumber;
     public String address;
-    public int phoneNumber;
+    public String phoneNumber;
     public Contact manager;
     public Contact carrier;
     public Contact employer;

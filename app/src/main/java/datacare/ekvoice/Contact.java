@@ -1,9 +1,11 @@
 package datacare.ekvoice;
 
+import java.io.Serializable;
+
 /**
  * Created by Robin on 3/5/2016.
  */
-public class Contact {
+public class Contact implements Serializable{
     public String name;
     public String phoneNumber;
     public String fax;
