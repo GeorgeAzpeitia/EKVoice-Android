@@ -14,28 +14,35 @@ public class CaseList extends Activity {
     Intent intent = getIntent();
     private ListView listView;
     private ArrayList<Case> caseNames;
-    ArrayAdapter<Case> itemsAdapter;
+    CaseAdapter itemsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_list);
-        caseNames = new ArrayList<>();
-        itemsAdapter = new ArrayAdapter<Case>(this, android.R.layout.simple_list_item_1, caseNames);
+        caseNames = new ArrayList<Case>();
+        itemsAdapter = new CaseAdapter(this, caseNames);
         Case test = new Case();
-        test.firstName = "Bernard";
-        test.lastName = "Sanders";
+        test.firstName = "Hillary";
+        test.lastName = "Clampton";
         Contact company = new Contact();
-        company.name = "Independent";
+        company.name = "Democrat";
         test.employer = company;
-        caseNames.add(test);
+        Case test2 = new Case();
+        test2.firstName = "Donald";
+        test2.lastName = "Trump";
+        Contact company2 = new Contact();
+        company2.name="Republican";
+        test2.employer = company2;
+        itemsAdapter.add(test);
+        itemsAdapter.add(test2);
 
         //ca = new CustomAdapter(this);
         //ia = new CaseAdapter(this);
 
         listView = (ListView) findViewById(R.id.listV);
-        //listView.setAdapter(ia);
-        //ia.loadObjects();
+        listView.setAdapter(itemsAdapter);
+        //itemsAdapter.loadObjects();
     }
 
 }
