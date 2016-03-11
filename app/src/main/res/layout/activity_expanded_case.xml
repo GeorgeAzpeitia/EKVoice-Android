@@ -86,7 +86,7 @@ android:layout_height="wrap_content" >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Claim Number:"
+        android:text=" Claim Number:"
         android:id="@+id/claimNumberSolid"
         android:layout_above="@+id/ignoreText4"
         android:layout_toEndOf="@+id/idText" />
@@ -94,7 +94,7 @@ android:layout_height="wrap_content" >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone Number:"
+        android:text=" Phone Number:"
         android:id="@+id/phoneTextSolid"
         android:layout_alignBottom="@+id/phoneText"
         android:layout_alignParentStart="true" />
@@ -104,11 +104,43 @@ android:layout_height="wrap_content" >
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:lines="10"
+        android:minLines="10"
+        android:gravity="top|left"
+        android:scrollbars="vertical"
         android:ems="10"
-        android:id="@+id/editText"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/ignoreText4"
+        android:id="@+id/noteText"
+        android:background="#0704f8f0"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
+        android:selectAllOnFocus="false"
+        android:layout_margin="10dp"
+        android:hint="Write a new note here."
+        android:padding="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="7dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Note: "
+        android:id="@+id/textView5"
+        android:textSize="15dp"
+        android:layout_below="@+id/ignoreText4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/slideTwoBack"
+        android:text="Save"
+        android:onClick="onSaveButton"
+        android:background="@color/primary"
+        android:textColor="@color/highlight"
+        android:layout_below="@+id/noteText"
+        android:layout_alignEnd="@+id/noteText" />
 
 </RelativeLayout>
