@@ -29,8 +29,8 @@ public class JSONToCase {
         }
     }
 
-    public Vector<Case> readCaseArray(JsonReader reader) throws IOException {
-        Vector<Case> cases = new Vector<>();
+    public ArrayList<Case> readCaseArray(JsonReader reader) throws IOException {
+        ArrayList<Case> cases = new ArrayList<>();
 
         reader.beginArray();
         while (reader.hasNext()) {
