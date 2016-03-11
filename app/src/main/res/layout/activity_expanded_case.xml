@@ -143,4 +143,21 @@ android:layout_height="wrap_content" >
         android:layout_below="@+id/noteText"
         android:layout_alignEnd="@+id/noteText" />
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="View All Notes"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/slideTwoBack"
+        android:layout_alignParentEnd="false"
+        android:textAlignment="center"
+        android:background="#4304f8f0"
+        android:layout_marginTop="40dp"
+        android:textColor="#ffffff"
+        android:elegantTextHeight="false"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:gravity="center_vertical" />
+
 </RelativeLayout>

@@ -7,6 +7,9 @@ import java.util.Vector;
  * Created by Robin on 3/5/2016.
  */
 public class Case implements Serializable{
+    public Case() {
+        notes = new Vector<Note>();
+    }
     public String lastName;
     public String firstName;
     public String claimNumber;
@@ -19,9 +22,9 @@ public class Case implements Serializable{
     public Contact attorney;
     public Contact serviceProvider;
     public Vector<Note> notes;
-    private class Note{
-        String user;
-        String date;
-        String noteText;
+    public static class Note{
+        public String user;
+        public String date;
+        public String noteText;
     }
 }

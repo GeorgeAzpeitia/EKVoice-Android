@@ -34,8 +34,14 @@ public class ExpandedCase extends Activity {
 
     public void onSaveButton(View v) {
         EditText et = (EditText) findViewById(R.id.noteText);
-        myCase.notes.add(et.getText().toString());
+        Case.Note aNote = new Case.Note();
+        aNote.noteText = et.getText().toString();
+        myCase.notes.add(aNote);
         TextView tView = (TextView) findViewById(R.id.nameText);
-        tView.setText(myCase.notes.size());
+        tView.setText(myCase.notes.firstElement().noteText);
+    }
+
+    public void onViewAllNotes(View v) {
+        
     }
 }

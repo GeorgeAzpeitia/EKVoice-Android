@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import datacare.ekvoice.Case;
-
+/*
 public class JSONToCase {
     public List readJsonStream(InputStream in) throws IOException {
         JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
@@ -127,4 +127,4 @@ public class JSONToCase {
         reader.endObject();
         return new User(username, followersCount);
     }
-}
+}*/
