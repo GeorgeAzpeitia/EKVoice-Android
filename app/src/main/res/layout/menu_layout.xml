@@ -69,7 +69,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button2"
         android:layout_marginTop="29dip"
-
         android:onClick="cases_event" />
 
     <TextView

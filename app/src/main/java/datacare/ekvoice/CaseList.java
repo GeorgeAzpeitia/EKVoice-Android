@@ -47,7 +47,6 @@ public class CaseList extends Activity {
 
         //ca = new CustomAdapter(this);
         //ia = new CaseAdapter(this);
-
         listView = (ListView) findViewById(R.id.listV);
         listView.setAdapter(itemsAdapter);
         //itemsAdapter.loadObjects();
