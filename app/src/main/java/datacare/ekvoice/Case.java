@@ -13,14 +13,19 @@ public class Case implements Serializable{
     public String lastName;
     public String firstName;
     public String claimNumber;
-    public String address;
+    public String address1;
+    public String address2;
+    public String city;
+    public String state;
+    public String zip;
     public String phoneNumber;
-    public Contact MD;
-    public Contact manager;
-    public Contact carrier;
-    public Contact employer;
-    public Contact attorney;
-    public Contact serviceProvider;
+    public String email;
+    public Contact MD = new Contact();
+    public Contact manager = new Contact();
+    public Contact carrier_contact = new Contact();
+    public Contact employer = new Contact();
+    public Contact attorney = new Contact();
+    public Contact serviceProvider = new Contact();
     public Vector<Note> notes;
     public static class Note{
         public String user;
