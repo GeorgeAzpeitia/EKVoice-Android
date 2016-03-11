@@ -14,10 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 /**
  * Created by kchinnap on 3/1/2016.
  */
+
 public class MenuActivity extends Activity {
 
     Button button;
@@ -27,26 +27,18 @@ public class MenuActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_layout);
-        //appointment_event();
-
-
     }
 
     public void appointment_event(View view) {
-
         final Context context = this;
         Intent intent = new Intent(context, AppointmentActivity.class);
         startActivity(intent);
-
     }
 
     public void cases_event(View view) {
-
         final Context context = this;
         Intent intent = new Intent(context, CaseList.class);
         startActivity(intent);
-
-
     }
 
     public void logout_event(View view) {

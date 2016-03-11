@@ -12,13 +12,13 @@ android:layout_height="wrap_content" >
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
     android:textSize="20dp"
-    android:background="#1204f8f0" />
+    android:background="#74a9e2f3" />
 
 <TextView
     android:id="@+id/employerText"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textColor="#000000"
+    android:textColor="#c8000000"
     android:text="description"
     android:layout_below="@+id/ignoreText"
     android:layout_centerHorizontal="true" />
@@ -51,5 +51,7 @@ android:layout_height="wrap_content" >
         android:layout_toStartOf="@+id/nameText"
     android:visibility="gone"
         android:layout_alignBottom="@+id/ignoreText4" />
+
+
 
 </RelativeLayout>
