@@ -12,10 +12,16 @@ public class Case implements Serializable{
     public String claimNumber;
     public String address;
     public String phoneNumber;
+    public Contact MD;
     public Contact manager;
     public Contact carrier;
     public Contact employer;
     public Contact attorney;
     public Contact serviceProvider;
-    public Vector<String> notes;
+    public Vector<Note> notes;
+    private class Note{
+        String user;
+        String date;
+        String noteText;
+    }
 }
