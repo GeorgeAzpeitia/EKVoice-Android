@@ -37,11 +37,11 @@ public class ExpandedCase extends Activity {
         Case.Note aNote = new Case.Note();
         aNote.noteText = et.getText().toString();
         myCase.notes.add(aNote);
-        TextView tView = (TextView) findViewById(R.id.nameText);
-        tView.setText(myCase.notes.firstElement().noteText);
+        //TextView tView = (TextView) findViewById(R.id.nameText);
+        //tView.setText(myCase.notes.firstElement().noteText);
     }
 
     public void onViewAllNotes(View v) {
-        
+
     }
 }
