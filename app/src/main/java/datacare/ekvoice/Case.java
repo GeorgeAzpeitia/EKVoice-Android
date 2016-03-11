@@ -1,6 +1,7 @@
 package datacare.ekvoice;
 
 import java.io.Serializable;
+import java.util.Vector;
 
 /**
  * Created by Robin on 3/5/2016.
@@ -16,4 +17,5 @@ public class Case implements Serializable{
     public Contact employer;
     public Contact attorney;
     public Contact serviceProvider;
+    public Vector<String> notes;
 }
