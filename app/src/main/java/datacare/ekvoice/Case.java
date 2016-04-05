@@ -1,6 +1,7 @@
 package datacare.ekvoice;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Vector;
  */
 public class Case implements Serializable{
     public Case() {
-        notes = new Vector<Note>();
+        notes = new ArrayList<Note>();
     }
     public String lastName;
     public String firstName;
@@ -26,7 +27,7 @@ public class Case implements Serializable{
     public Contact employer = new Contact();
     public Contact attorney = new Contact();
     public Contact serviceProvider = new Contact();
-    public Vector<Note> notes;
+    public ArrayList<Note> notes;
     public static class Note{
         public String user;
         public String date;

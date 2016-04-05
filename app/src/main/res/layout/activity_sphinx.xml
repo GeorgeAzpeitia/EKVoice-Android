@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Record"
         android:id="@+id/sphinxRecord"
+        android:background="#81BEF7"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:onClick="offlineSpeechRequest" />
@@ -23,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text="Online Mode"
         android:id="@+id/button"
+        android:background="#81BEF7"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:onClick="switchBack" />
@@ -40,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stop"
+        android:background="#81BEF7"
         android:id="@+id/sphinxStop"
         android:layout_below="@+id/sphinxTextOut"
         android:layout_centerHorizontal="true"

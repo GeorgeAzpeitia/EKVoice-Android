@@ -29,7 +29,7 @@ public class CaseAdapter extends ArrayAdapter<Case> {
         TextView tvName = (TextView) convertView.findViewById(R.id.nameText);
         TextView tvHome = (TextView) convertView.findViewById(R.id.employerText);
         // Populate the data into the template view using the data object
-        tvName.setText(customer.lastName+", "+customer.firstName);
+        tvName.setText(customer.lastName);
         tvHome.setText(customer.employer.name);
         // Return the completed view to render on screen
         return convertView;
