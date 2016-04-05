@@ -71,7 +71,7 @@ public class CaseList extends Activity {
 
                 Intent expandEvent = new Intent(CaseList.this, ExpandedCase.class);
                 expandEvent.putExtra("caseToExpand", toExpand);
-                startActivityForResult(expandEvent,1);
+                startActivity(expandEvent);
             }
         });
     }

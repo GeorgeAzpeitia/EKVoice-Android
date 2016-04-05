@@ -36,7 +36,7 @@ public class LoginActivity extends Activity{
             @Override
             public void onClick(View arg0) {
 
-                Intent intent = new Intent(context, MenuActivity.class);
+                Intent intent = new Intent(context, CaseList.class);
                 startActivity(intent);
             }
         });

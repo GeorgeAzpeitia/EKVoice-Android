@@ -28,7 +28,7 @@ public class Case implements Serializable{
     public Contact attorney = new Contact();
     public Contact serviceProvider = new Contact();
     public ArrayList<Note> notes;
-    public static class Note{
+    public static class Note implements Serializable{
         public String user;
         public String date;
         public String noteText;
