@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import datacare.ekvoice.util.CaseFragmentsAdapter;
 import datacare.ekvoice.util.JSONToCase;
 import java.util.ArrayList;
 
@@ -69,7 +71,7 @@ public class CaseList extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Case toExpand = itemsAdapter.getItem(position);
 
-                Intent expandEvent = new Intent(CaseList.this, ExpandedCase.class);
+                Intent expandEvent = new Intent(CaseList.this, CaseFragmentsAdapter.class);
                 expandEvent.putExtra("caseToExpand", toExpand);
                 startActivity(expandEvent);
             }

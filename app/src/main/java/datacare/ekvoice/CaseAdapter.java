@@ -27,10 +27,10 @@ public class CaseAdapter extends ArrayAdapter<Case> {
         }
         // Lookup view for data population
         TextView tvName = (TextView) convertView.findViewById(R.id.nameText);
-        TextView tvHome = (TextView) convertView.findViewById(R.id.employerText);
+        TextView tvHome = (TextView) convertView.findViewById(R.id.caseNumber);
         // Populate the data into the template view using the data object
         tvName.setText(customer.lastName);
-        tvHome.setText(customer.employer.name);
+        tvHome.setText(customer.claimNumber + " >");
         // Return the completed view to render on screen
         return convertView;
     }
