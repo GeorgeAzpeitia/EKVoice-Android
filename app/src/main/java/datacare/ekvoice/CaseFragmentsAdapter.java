@@ -1,4 +1,4 @@
-package datacare.ekvoice.util;
+package datacare.ekvoice;
 
 
 import android.os.Bundle;
@@ -28,7 +28,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
     @Override
     protected void onCreate(final Bundle state){
         super.onCreate(state);
-        setContentView(R.layout.test1);
+        setContentView(R.layout.case_swipe_group);
 
         adapter = new MyAdapter(getSupportFragmentManager());
 
@@ -49,9 +49,16 @@ public class CaseFragmentsAdapter extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return ArrayListFragment.newInstance(position);
+            switch (position) {
+                case 0:
+                    return new ContactListFragment();
+                case 1:
+                    return new ArrayListFragment();
+            }
+            return null;
         }
     }
+
     public static class ArrayListFragment extends ListFragment {
         int mNum;
         static final String[] testData = {"one", "two", "three", "four", "five"};

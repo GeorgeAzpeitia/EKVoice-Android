@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/listV"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout"
+        android:layout_below="@+id/frameLayout"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp" />
 
@@ -18,7 +18,7 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-        android:id="@+id/linearLayout"
+        android:id="@+id/frameLayout"
         android:background="#649fe5"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
