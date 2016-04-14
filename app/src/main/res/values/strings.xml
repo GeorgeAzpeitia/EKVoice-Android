@@ -5,4 +5,7 @@
     <string name="AddNote">Add Note</string>
     <string name="Cancelbutton" />
     <string name="Cancel">Cancel</string>
+    <string name="ReportNum">Report Number:</string>
+    <string name="ReportNumber">Report Number:</string>
+    <string name="AddContact">Add Contact</string>
 </resources>

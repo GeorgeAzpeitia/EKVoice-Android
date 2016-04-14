@@ -48,5 +48,25 @@
             android:layout_marginBottom="3dp" />
     </FrameLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ReportNumber"
+        android:id="@+id/textView8"
+        android:textColor="#0a0a0a"
+        android:texColorBackground=""
+        android:textSize="21dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AddContact"
+        android:id="@+id/button11"
+        android:layout_below="@+id/frameLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp" />
+
 
 </RelativeLayout>
