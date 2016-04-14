@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">EK Voice</string>
     <string name="title_activity_display_message">My Message</string>
+    <string name="Savebutton">Save</string>
+    <string name="AddNote">Add Note</string>
+    <string name="Cancelbutton" />
+    <string name="Cancel">Cancel</string>
 </resources>
