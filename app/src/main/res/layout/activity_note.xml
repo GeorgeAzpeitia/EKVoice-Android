@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="datacare.ekvoice.NoteActivity">
+
     <FrameLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -51,53 +52,71 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
         android:text="@string/ReportNumber"
         android:id="@+id/textView8"
         android:textColor="#0a0a0a"
-        android:textSize="21dp"
-        android:layout_above="@+id/editText"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="89dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/AddContact"
-        android:id="@+id/button11"
+        android:textSize="25dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:textSize="30dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_marginBottom="79dp"
-        android:maxLines = "5"
-        android:scrollbars = "vertical"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="90dp"
+        android:text="@string/AddContact"
+        android:id="@+id/button11"
+        android:textSize="25dp"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/button12" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:maxLines = "4"
+        android:scrollbars = "vertical"
+        android:layout_marginTop="99dp"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="Play"
         android:id="@+id/button12"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="45dp"
+        android:textSize="25dp"
         android:layout_below="@+id/frameLayout"
-        android:layout_toEndOf="@+id/textView14"
-        android:layout_marginStart="65dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="45dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+
         android:text="Time"
         android:id="@+id/textView14"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/button12"
         android:layout_alignBottom="@+id/button12"
-        android:layout_alignEnd="@+id/button11"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:layout_alignEnd="@+id/textView8" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Call"
+        android:id="@+id/button13"
+        android:layout_alignBottom="@+id/button11"
+        android:layout_alignStart="@+id/button12"
+        android:textSize="25dp" />
 
 
 </RelativeLayout>
