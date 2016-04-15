@@ -54,19 +54,50 @@
         android:text="@string/ReportNumber"
         android:id="@+id/textView8"
         android:textColor="#0a0a0a"
-        android:texColorBackground=""
         android:textSize="21dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="89dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/AddContact"
         android:id="@+id/button11"
-        android:layout_below="@+id/frameLayout"
+        android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="41dp" />
+        android:textSize="30dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_marginBottom="79dp"
+        android:maxLines = "5"
+        android:scrollbars = "vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/button12"
+        android:layout_marginTop="47dp"
+        android:layout_below="@+id/frameLayout"
+        android:layout_toEndOf="@+id/textView14"
+        android:layout_marginStart="65dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time"
+        android:id="@+id/textView14"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/button12"
+        android:layout_alignBottom="@+id/button12"
+        android:layout_alignEnd="@+id/button11"
+        android:textSize="30dp" />
 
 
 </RelativeLayout>
