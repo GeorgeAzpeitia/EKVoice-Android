@@ -118,6 +118,7 @@
         android:layout_height="wrap_content"
         android:text="Add\nNote"
         android:id="@+id/button9"
+        android:onClick="ContactDetails"
         android:layout_gravity="left|center_vertical"
         android:drawableRight="@drawable/ic_plus_48"
         android:drawablePadding="5dp"
