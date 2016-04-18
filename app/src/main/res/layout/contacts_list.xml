@@ -44,10 +44,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="A. Smith"
         android:id="@+id/textView8"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="36dp"
         android:layout_below="@+id/frameLayout"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,16 +64,16 @@
         android:text="Town, XZ, 95000"
         android:id="@+id/textView10"
         android:layout_marginRight="67dp"
-        android:layout_below="@+id/textView9"
-        android:layout_alignStart="@+id/textView13" />
+        android:layout_below="@+id/textView11"
+        android:layout_alignEnd="@+id/textView13" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Address:"
         android:id="@+id/textView11"
-        android:layout_above="@+id/textView10"
-        android:layout_toStartOf="@+id/textView10" />
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,7 +88,15 @@
         android:layout_height="wrap_content"
         android:text="(999) 555 - 9595"
         android:id="@+id/textView13"
-        android:layout_alignTop="@+id/textView12"
+        android:layout_below="@+id/textView12"
         android:layout_alignStart="@+id/textView9" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_toStartOf="@+id/textView13"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/textView13" />
 
 </RelativeLayout>

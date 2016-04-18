@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Vector;
 
 import datacare.ekvoice.Case;
+import datacare.ekvoice.Contact;
 
 public class JSONToCase {
     public static ArrayList<Case> readJsonStream(InputStream in) throws IOException {
@@ -77,63 +78,83 @@ public class JSONToCase {
                     aCase.zip = reader.nextString();
                     break;
                 case "carrier":
+                    if(aCase.carrier_contact == null) aCase.carrier_contact = new Contact();
                     aCase.carrier_contact.company = reader.nextString();
                     break;
                 case "carrier_contact_name":
+                    if(aCase.carrier_contact == null) aCase.carrier_contact = new Contact();
                     aCase.carrier_contact.name = reader.nextString();
                     break;
                 case "carrier_contact_phone":
+                    if(aCase.carrier_contact == null) aCase.carrier_contact = new Contact();
                     aCase.carrier_contact.phoneNumber = reader.nextString();
                     break;
                 case "carrier_contact_email":
+                    if(aCase.carrier_contact == null) aCase.carrier_contact = new Contact();
                     aCase.carrier_contact.email = reader.nextString();
                     break;
                 case "primary_md_name":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.name = reader.nextString();
                     break;
                 case "primary_md_phone":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.phoneNumber = reader.nextString();
                     break;
                 case "primary_md_fax":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.fax = reader.nextString();
                     break;
                 case "primary_md_addr1":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.address1 = reader.nextString();
                     break;
                 case "primary_md_addr2":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.address2 = reader.nextString();
                     break;
                 case "primary_md_city":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.city = reader.nextString();
                     break;
                 case "primary_md_state":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.state = reader.nextString();
                     break;
                 case "primary_md_zip":
+                    if(aCase.MD == null) aCase.MD = new Contact();
                     aCase.MD.zip = reader.nextString();
                     break;
                 case "attorney_name":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.name = reader.nextString();
                     break;
                 case "attorney_phone":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.phoneNumber = reader.nextString();
                     break;
                 case "attorney_addr1":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.address1 = reader.nextString();
                     break;
                 case "attorney_addr2":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.address2 = reader.nextString();
                     break;
                 case "attorney_city":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.city = reader.nextString();
                     break;
                 case "attorney_state":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.state = reader.nextString();
                     break;
                 case "attorney_zip":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.zip = reader.nextString();
                     break;
                 case "attorney_email":
+                    if(aCase.attorney == null) aCase.attorney = new Contact();
                     aCase.attorney.email = reader.nextString();
                     break;
                 case "notes":
@@ -161,6 +182,5 @@ public class JSONToCase {
         reader.endObject();
         return aCase;
     }
-
 
 }

@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import datacare.ekvoice.R;
 
 /**
@@ -25,10 +27,15 @@ public class CaseFragmentsAdapter extends FragmentActivity {
     static final int NUM_PAGES = 2;
     ViewPager pager;
     MyAdapter adapter;
+    Case myCase;
+    private static ArrayList<Contact> contacts;
+
     @Override
     protected void onCreate(final Bundle state){
         super.onCreate(state);
+        myCase = (Case)getIntent().getSerializableExtra("caseToExpand");
         setContentView(R.layout.case_swipe_group);
+
 
         adapter = new MyAdapter(getSupportFragmentManager());
 
@@ -37,11 +44,28 @@ public class CaseFragmentsAdapter extends FragmentActivity {
 
     }
 
+    private ArrayList<Contact> makeContactList(Case myCase){
+        contacts = new ArrayList<>();
+        if(myCase.attorney != null){
+
+        }
+        if(myCase.attorney != null){
+
+        }if(myCase.attorney != null){
+
+        }if(myCase.attorney != null){
+
+        }if(myCase.attorney != null){
+
+        }
+        return contacts;
+    }
+
     public static class MyAdapter extends FragmentPagerAdapter {
         public MyAdapter(FragmentManager fm) {
             super(fm);
         }
-
+        private Fragment[] fragments;
         @Override
         public int getCount() {
             return NUM_PAGES;
@@ -51,7 +75,10 @@ public class CaseFragmentsAdapter extends FragmentActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new ContactListFragment();
+                    if(fragments[position] == null){
+                        fragments[position] = ContactListFragment.newInstance(contacts);
+                        return fragments[position];
+                    }
                 case 1:
                     return new ArrayListFragment();
             }

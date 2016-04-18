@@ -21,12 +21,12 @@ public class Case implements Serializable{
     public String zip;
     public String phoneNumber;
     public String email;
-    public Contact MD = new Contact();
-    public Contact manager = new Contact();
-    public Contact carrier_contact = new Contact();
-    public Contact employer = new Contact();
-    public Contact attorney = new Contact();
-    public Contact serviceProvider = new Contact();
+    public Contact MD;
+    public Contact manager;
+    public Contact carrier_contact;
+    public Contact employer;
+    public Contact attorney;
+    public Contact serviceProvider;
     public ArrayList<Note> notes;
     public static class Note implements Serializable{
         public String user;

@@ -2,13 +2,15 @@ package datacare.ekvoice;
 
 import android.app.ListFragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by george on 4/11/16.
@@ -16,9 +18,9 @@ import android.widget.Button;
 public class ContactListFragment extends Fragment {
     int mNum;
     static final String[] testData = {"one", "two", "three", "four", "five"};
-
+    private ArrayList<Contact> contacts;
     @Override
-    public void onCreate(Bundle state){
+    public void onCreate(Bundle state) {
         super.onCreate(state);
     }
 
@@ -28,12 +30,30 @@ public class ContactListFragment extends Fragment {
         View v = inflater.inflate(R.layout.contacts_list, container, false);
         return v;
     }
+    public static Fragment newInstance(ArrayList<Contact> contactsParam){
+        ContactListFragment frag = new ContactListFragment();
+        if (contactsParam != null) {
+            frag.contacts = contactsParam;
+        }
+        return frag;
+    }
+    private static class ContactListAdapter extends ArrayAdapter<Contact> {
+        public ContactListAdapter(Context context, ArrayList<Contact> users) {
+            super(context, 0, users);
+        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Contact aContact = getItem(position);
+            if (convertView == null){
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.case_list_item, parent, false);
+            }
+            TextView contactName = (TextView) convertView.findViewById(R.id.nameText);
+            TextView contactPosition = (TextView) convertView.findViewById(R.id.caseNumber);
 
-    public void addNote(View view){
-        Intent note;
-        note = new Intent(getActivity() ,NoteActivity.class);
-        startActivity(note);
+            contactName.setText(aContact.name);
+            contactPosition.setText(aContact.position);
+            return convertView;
+        }
 
     }
-
 }
