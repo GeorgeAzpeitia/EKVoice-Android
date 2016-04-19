@@ -19,8 +19,6 @@ import java.util.ArrayList;
  * Created by george on 4/11/16.
  */
 public class ContactListFragment extends Fragment {
-    int mNum;
-    static final String[] testData = {"one", "two", "three", "four", "five"};
     private ArrayList<Contact> contacts;
     @Override
     public void onCreate(Bundle state) {

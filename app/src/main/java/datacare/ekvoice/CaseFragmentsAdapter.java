@@ -27,7 +27,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
     static final int NUM_PAGES = 2;
     ViewPager pager;
     MyAdapter adapter;
-    Case myCase;
+    private static Case myCase;
     private static ArrayList<Contact> contacts;
 
     @Override
@@ -86,7 +86,10 @@ public class CaseFragmentsAdapter extends FragmentActivity {
                         return fragments[position];
                     }
                 case 1:
-                    return new ArrayListFragment();
+                    if(fragments[position] == null){
+                        fragments[position] = NotesHistoryFragment.newInstance(myCase.notes);
+                        return fragments[position];
+                    }
             }
             return null;
         }
