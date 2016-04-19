@@ -97,14 +97,16 @@
         android:layout_height="wrap_content"
         android:text="Bill"
         android:id="@+id/button11"
-        android:drawableRight="@drawable/ic_time_48"
         android:drawablePadding="5dp"
         android:textColor="#649fe5"
         android:background="#ffffff"
         android:layout_marginRight="10dp"
         android:layout_alignTop="@+id/button10"
         android:layout_alignEnd="@+id/textView13"
-        android:layout_gravity="right|center_vertical" />
+        android:layout_gravity="right|center_vertical"
+        android:drawableRight="@drawable/ic_time_48"
+        />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -112,13 +114,14 @@
         android:text="Call"
         android:id="@+id/button10"
         android:onClick="ContactDetails"
-        android:drawableRight="@drawable/ic_phone_48"
         android:drawablePadding="5dp"
         android:textColor="#649fe5"
         android:background="#ffffff"
         android:layout_alignTop="@+id/linearLayout"
         android:layout_toEndOf="@+id/textView8"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:drawableRight="@drawable/ic_phone_48"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -126,14 +129,14 @@
         android:text="Add\nNote"
         android:id="@+id/button9"
         android:onClick="NoteActivity"
-        android:layout_gravity="left|center_vertical"
-        android:drawableRight="@drawable/ic_plus_48"
-        android:drawablePadding="5dp"
         android:textColor="#649fe5"
         android:background="#ffffff"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/textView8" />
+        android:layout_alignEnd="@+id/textView8"
+        android:drawableRight="@drawable/ic_plus_48"
+        android:drawablePadding="5dp"/>
+
 </FrameLayout>
 
     <TextView

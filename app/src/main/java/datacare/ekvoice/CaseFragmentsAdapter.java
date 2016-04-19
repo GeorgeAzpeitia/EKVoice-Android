@@ -34,6 +34,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
     protected void onCreate(final Bundle state){
         super.onCreate(state);
         myCase = (Case)getIntent().getSerializableExtra("caseToExpand");
+        makeContactList(myCase);
         setContentView(R.layout.case_swipe_group);
 
 
@@ -44,28 +45,33 @@ public class CaseFragmentsAdapter extends FragmentActivity {
 
     }
 
-    private ArrayList<Contact> makeContactList(Case myCase){
+    private void makeContactList(Case myCase){
         contacts = new ArrayList<>();
-        if(myCase.attorney != null){
-
+        if(myCase.MD != null){
+            contacts.add(myCase.MD);
+        }
+        if(myCase.manager != null){
+            contacts.add(myCase.manager);
+        }
+        if(myCase.carrier_contact != null){
+            contacts.add(myCase.carrier_contact);
+        }
+        if(myCase.employer != null){
+            contacts.add(myCase.employer);
         }
         if(myCase.attorney != null){
-
-        }if(myCase.attorney != null){
-
-        }if(myCase.attorney != null){
-
-        }if(myCase.attorney != null){
-
+            contacts.add(myCase.attorney);
         }
-        return contacts;
+        if(myCase.serviceProvider != null){
+            contacts.add(myCase.serviceProvider);
+        }
     }
 
     public static class MyAdapter extends FragmentPagerAdapter {
         public MyAdapter(FragmentManager fm) {
             super(fm);
         }
-        private Fragment[] fragments;
+        private Fragment[] fragments = new Fragment[NUM_PAGES];
         @Override
         public int getCount() {
             return NUM_PAGES;
