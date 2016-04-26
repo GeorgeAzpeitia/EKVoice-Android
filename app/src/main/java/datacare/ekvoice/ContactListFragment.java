@@ -48,7 +48,7 @@ public class ContactListFragment extends Fragment {
         cList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((FoldingCell) view).toggle(false);
+//                ((FoldingCell) view).toggle(false);
                 //contactsAdapter.registerToggle(position);
             }
         });
