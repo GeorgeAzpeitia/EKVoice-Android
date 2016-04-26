@@ -83,8 +83,8 @@ public class ContactListFragment extends Fragment {
             if (convertView == null){
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.cell, parent, false);
             }
-            TextView contactName = (TextView) convertView.findViewById(R.id.textView8);
-            TextView contactPosition = (TextView) convertView.findViewById(R.id.textView9);
+            TextView contactName = (TextView) convertView.findViewById(R.id.contactName);
+            TextView contactPosition = (TextView) convertView.findViewById(R.id.contactPosition);
 
             contactName.setText(aContact.name);
             contactPosition.setText(aContact.position);

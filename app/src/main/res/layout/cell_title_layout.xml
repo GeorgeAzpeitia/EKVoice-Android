@@ -9,7 +9,7 @@
     <!-- LEFT TITLE PART -->
     <!-- RIGHT TITLE PART -->
     <RelativeLayout
-        android:layout_width="386dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/bgTitleRight"
         android:paddingBottom="20dp"
@@ -61,15 +61,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="A. Smith"
-            android:id="@+id/textView18"
+            android:id="@+id/contactName"
             android:layout_alignTop="@+id/title_from_to_dots"
             android:layout_alignStart="@+id/title_from_address" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lawyer"
-            android:id="@+id/textView19"
+            android:text="Lawye"
+            android:id="@+id/contactPosition"
             android:layout_below="@+id/title_from_to_dots_divider"
             android:layout_toEndOf="@+id/title_from_address" />
 
