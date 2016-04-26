@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout"
-            android:onClick="logout_button"
+            android:onClick="logoutButton"
             android:id="@+id/logout_button"
             android:layout_gravity= "right|bottom"
             android:textColor="#ffffff"
