@@ -3,7 +3,7 @@
     android:id="@+id/contactsList"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
+    android:background="#98FB98"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:divider="@android:color/transparent"

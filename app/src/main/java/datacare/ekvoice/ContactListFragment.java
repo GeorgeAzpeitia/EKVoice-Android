@@ -48,7 +48,7 @@ public class ContactListFragment extends Fragment {
         cList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                ((FoldingCell) view).toggle(false);
+               ((FoldingCell) view).toggle(false);
                 //contactsAdapter.registerToggle(position);
             }
         });
@@ -81,10 +81,10 @@ public class ContactListFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             Contact aContact = getItem(position);
             if (convertView == null){
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.case_list_item, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.cell, parent, false);
             }
-            TextView contactName = (TextView) convertView.findViewById(R.id.nameText);
-            TextView contactPosition = (TextView) convertView.findViewById(R.id.caseNumber);
+            TextView contactName = (TextView) convertView.findViewById(R.id.textView8);
+            TextView contactPosition = (TextView) convertView.findViewById(R.id.textView9);
 
             contactName.setText(aContact.name);
             contactPosition.setText(aContact.position);
