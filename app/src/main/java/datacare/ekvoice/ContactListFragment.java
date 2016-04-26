@@ -8,10 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
 
@@ -20,6 +23,7 @@ import java.util.ArrayList;
  */
 public class ContactListFragment extends Fragment {
     private ArrayList<Contact> contacts;
+
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -29,9 +33,26 @@ public class ContactListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle state) {
         View v = inflater.inflate(R.layout.contacts_list, container, false);
-        ContactListAdapter contactsAdapter = new ContactListAdapter(getActivity(), contacts);
+
+
+        //get our list view
         ListView cList = (ListView) v.findViewById(R.id.contactsList);
+
+        //create custom adapater that holds elements and their state.
+        final ContactListAdapter contactsAdapter = new ContactListAdapter(getActivity(), contacts);
+
+        //set elements to adapter
         cList.setAdapter(contactsAdapter);
+
+        // get our folding cell
+        cList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ((FoldingCell) view).toggle(false);
+                //contactsAdapter.registerToggle(position);
+            }
+        });
+
 
         Button addNote = (Button) v.findViewById(R.id.button9);
         addNote.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +64,7 @@ public class ContactListFragment extends Fragment {
         });
         return v;
     }
+
     public static Fragment newInstance(ArrayList<Contact> contactsParam){
         ContactListFragment frag = new ContactListFragment();
         if (contactsParam != null && contactsParam.size() != 0) {
@@ -59,7 +81,7 @@ public class ContactListFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             Contact aContact = getItem(position);
             if (convertView == null){
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.case_list_item, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.folding_cell, parent, false);
             }
             TextView contactName = (TextView) convertView.findViewById(R.id.nameText);
             TextView contactPosition = (TextView) convertView.findViewById(R.id.caseNumber);

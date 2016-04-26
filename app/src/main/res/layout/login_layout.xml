@@ -47,7 +47,6 @@
         android:onClick="login_event"
         android:text="Login"
         android:textStyle="bold"
-        android:background="#A9E2F3"
         android:textColor="#ffffff"
         android:layout_below="@+id/eventPassword1"
         android:layout_centerHorizontal="true"
@@ -58,8 +57,8 @@
         android:layout_height="360dp"
         android:id="@+id/imageView"
         android:background="@drawable/loginlogo"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/eventUsername" />
+        android:layout_above="@+id/eventUsername"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

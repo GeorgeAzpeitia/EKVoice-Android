@@ -13,7 +13,7 @@ public class ContactDetails extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.contact_details);
+        setContentView(R.layout.folding_cell);
         b1 = (Button) findViewById(R.id.button10);
         call();
     }

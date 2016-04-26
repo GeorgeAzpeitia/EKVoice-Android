@@ -27,6 +27,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ramotion.foldingcell.FoldingCell;
+
 import edu.cmu.pocketsphinx.Assets;
 import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
@@ -49,6 +51,7 @@ public class MainActivity extends Activity {
         //standard startup tasks
         super.onCreate(state);
         setContentView(R.layout.login_layout);
+
 
         //initialize view references
         //speechOutput = (EditText) findViewById(R.id.textOutput);
