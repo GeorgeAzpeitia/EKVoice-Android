@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="datacare.ekvoice.NoteActivity"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:id="@+id/relativeLayout1">
 
     <FrameLayout
         android:orientation="horizontal"
@@ -50,130 +51,143 @@
             android:layout_marginBottom="3dp" />
     </FrameLayout>
 
-    <TextView
+
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
-        android:text="@string/ReportNumber"
-        android:id="@+id/textView8"
-        android:textColor="#0a0a0a"
-        android:textSize="25dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:text="@string/AddContact"
-        android:layout_gravity="right|bottom"
-        android:drawableRight="@drawable/android_arrow_forward"
-        android:id="@+id/button11"
-        android:textSize="20dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="35dp"
-        android:layout_alignEnd="@+id/textView8" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:maxLines = "4"
-        android:scrollbars = "vertical"
-        android:layout_below="@+id/textView8"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp" />
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
         android:layout_below="@+id/frameLayout"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="40dp"
-        android:id="@+id/linearLayout2">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
+        android:layout_toStartOf="@+id/button12" >
 
-            android:text="Time: "
-            android:id="@+id/textView14"
-            android:layout_alignParentLeft="true"
-            android:textSize="25dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/frameLayout"
+            android:id="@+id/relativeLayout2">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="00:00"
-            android:id="@+id/textView15"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="26dp" />
-    </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Voice-to-text"
+                    android:id="@+id/textView17" />
 
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New ToggleButton"
+                    android:id="@+id/toggleButton" />
+            </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Call Contact"
-        android:layout_gravity="right|bottom"
-        android:drawableRight="@drawable/ic_phone_48"
-        android:id="@+id/button13"
-        android:textSize="20dp"
-        android:layout_alignTop="@+id/button11"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/button11"
-        android:enabled="false" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp"
+                android:id="@+id/linearLayout2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Play"
-        android:gravity="end"
-        android:id="@+id/button12"
-        android:textSize="25dp"
-        android:layout_alignTop="@+id/linearLayout2"
-        android:layout_alignEnd="@+id/button13"
-        android:layout_marginRight="30dp" />
+                    android:text="Time: "
+                    android:id="@+id/textView14"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="25dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="UR1"
-        android:id="@+id/textView16"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignStart="@+id/button13" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="00:00"
+                    android:id="@+id/textView15"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="26dp" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="@string/ReportNumber"
+                android:id="@+id/textView8"
+                android:textColor="#0a0a0a"
+                android:textSize="25dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Voice-to-text"
-            android:id="@+id/textView17" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="@string/AddContact"
+                android:layout_gravity="right|bottom"
+                android:drawableRight="@drawable/android_arrow_forward"
+                android:id="@+id/button11"
+                android:textSize="20dp"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="35dp"
+                android:layout_alignEnd="@+id/textView8" />
 
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/toggleButton" />
-    </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:maxLines = "4"
+                android:scrollbars = "vertical"
+                android:layout_below="@+id/textView8"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="40dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Call Contact"
+                android:layout_gravity="right|bottom"
+                android:drawableRight="@drawable/ic_phone_48"
+                android:id="@+id/button13"
+                android:textSize="20dp"
+                android:layout_alignTop="@+id/button11"
+                android:layout_alignParentEnd="true"
+                android:layout_alignBottom="@+id/button11"
+                android:enabled="false" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="Play"
+                android:gravity="end"
+                android:id="@+id/button12"
+                android:textSize="25dp"
+                android:layout_alignTop="@+id/linearLayout2"
+                android:layout_alignEnd="@+id/button13"
+                android:layout_marginRight="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="UR1"
+                android:id="@+id/textView16"
+                android:layout_alignBottom="@+id/textView8"
+                android:layout_alignStart="@+id/button13" />
+        </RelativeLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
