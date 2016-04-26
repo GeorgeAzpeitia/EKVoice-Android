@@ -54,7 +54,7 @@ public class ContactListFragment extends Fragment {
         });
 
 
-        Button addNote = (Button) v.findViewById(R.id.button9);
+        /*Button addNote = (Button) v.findViewById(R.id.button9);
         addNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +62,7 @@ public class ContactListFragment extends Fragment {
                 startActivity(note);
             }
         });
-        return v;
+        */return v;
     }
 
     public static Fragment newInstance(ArrayList<Contact> contactsParam){
@@ -81,7 +81,7 @@ public class ContactListFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             Contact aContact = getItem(position);
             if (convertView == null){
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.folding_cell, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.case_list_item, parent, false);
             }
             TextView contactName = (TextView) convertView.findViewById(R.id.nameText);
             TextView contactPosition = (TextView) convertView.findViewById(R.id.caseNumber);
