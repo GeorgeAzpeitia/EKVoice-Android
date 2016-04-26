@@ -4,8 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
 
@@ -32,6 +35,8 @@ public class CaseAdapter extends ArrayAdapter<Case> {
         tvName.setText(customer.lastName);
         tvHome.setText(customer.claimNumber);
         // Return the completed view to render on screen
+
+
         return convertView;
     }
 }

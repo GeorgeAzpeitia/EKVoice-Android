@@ -75,5 +75,14 @@ public class CaseList extends Activity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+    }
+
+    public void logoutButton(View v){
+        //ParseUser.logOut();
+        finish();
+        startActivity(new Intent(this, LoginActivity.class));
+    }
 
 }
