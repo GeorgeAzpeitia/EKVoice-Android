@@ -18,7 +18,7 @@
             android:id="@+id/textView7"
             android:layout_gravity="center_horizontal|bottom"
             android:textColor="#ffffff"
-            android:textSize="21dp"
+            android:textSize="25dp"
             android:layout_marginBottom="10dp" />
 
     </FrameLayout>
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="A. Smith"
+        android:textSize="28dp"
         android:id="@+id/textView8"
         android:layout_marginStart="30dp"
         android:layout_marginTop="36dp"
@@ -137,5 +138,32 @@
         android:drawablePadding="5dp"/>
 
 </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company:"
+        android:textSize="18dp"
+        android:id="@+id/textView15"
+        android:layout_alignTop="@+id/textView16"
+        android:layout_alignStart="@+id/textView12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/textView16"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="18dp"
+        android:id="@+id/textView17"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/textView15"
+        android:layout_alignStart="@+id/textView15" />
 
 </RelativeLayout>
