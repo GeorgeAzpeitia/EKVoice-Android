@@ -8,11 +8,13 @@ import java.util.Vector;
  * Created by Robin on 3/5/2016.
  */
 public class Case implements Serializable{
+
     public Case() {
         notes = new ArrayList<Note>();
     }
     public String lastName;
     public String firstName;
+    public String position;
     public String claimNumber;
     public String address1;
     public String address2;

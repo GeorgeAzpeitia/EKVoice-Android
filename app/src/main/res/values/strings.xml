@@ -20,11 +20,11 @@
     <string name="client_name_mock" translatable="false">Edward Norton</string>
     <string name="rating_mock" translatable="false">(26)</string>
     <string name="from_badge" translatable="false">ADDRESS</string>
-    <string name="delivery_date_badge" translatable="false">EMAIL</string>
-    <string name="delivery_time_mock" translatable="false">blah@gmail.com</string>
+    <string name="email_title" translatable="false">EMAIL</string>
+    <string name="email" translatable="false">blah@gmail.com</string>
     <string name="delivery_date_mock" translatable="false">May 16, 2016</string>
-    <string name="deadline_badge" translatable="false">PHONE</string>
-    <string name="deadline_time_mock" translatable="false">(408)111-2233</string>
+    <string name="phone_title" translatable="false">PHONE</string>
+    <string name="phone" translatable="false">(408)111-2233</string>
     <string name="request_btn_text" translatable="false">REQUEST</string>
     <string name="btn_annotation_mock" translatable="false">5 people have sent a request</string>
     <string name="content_from1_mock">W 90th St</string>

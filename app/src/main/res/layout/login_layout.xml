@@ -67,7 +67,7 @@
         android:scaleX=".40"
         android:scaleY=".40"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/dataCareLogo"
+        android:src="@drawable/datacare_logo"
         android:layout_marginTop="30dp"
         android:adjustViewBounds="true" />
 

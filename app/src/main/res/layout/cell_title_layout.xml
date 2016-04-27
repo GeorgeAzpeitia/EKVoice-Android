@@ -6,8 +6,6 @@
     android:baselineAligned="false"
     android:orientation="horizontal">
 
-    <!-- LEFT TITLE PART -->
-    <!-- RIGHT TITLE PART -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,16 +60,14 @@
             android:layout_height="wrap_content"
             android:text="A. Smith"
             android:id="@+id/contactName"
-            style="@style/ContentMainBadgeTitle"
             android:layout_alignTop="@+id/title_from_to_dots"
             android:layout_alignStart="@+id/title_from_address" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lawye"
+            android:text="Lawyer"
             android:id="@+id/contactPosition"
-            style="@style/ContentMainBadgeTitle"
             android:layout_below="@+id/title_from_to_dots_divider"
             android:layout_toEndOf="@+id/title_from_address" />
 

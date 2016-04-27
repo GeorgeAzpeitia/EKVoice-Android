@@ -54,15 +54,15 @@ public class ContactListFragment extends Fragment {
         });
 
 
-        /*Button addNote = (Button) v.findViewById(R.id.button9);
+        /*Button addNote = (Button) v.findViewById(R.id.button14);
         addNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent note = new Intent(getActivity(), NoteActivity.class);
                 startActivity(note);
             }
-        });
-        */return v;
+        }); */
+        return v;
     }
 
     public static Fragment newInstance(ArrayList<Contact> contactsParam){
@@ -83,6 +83,7 @@ public class ContactListFragment extends Fragment {
             if (convertView == null){
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.cell, parent, false);
             }
+
             TextView contactName = (TextView) convertView.findViewById(R.id.contactName);
             TextView contactPosition = (TextView) convertView.findViewById(R.id.contactPosition);
 
