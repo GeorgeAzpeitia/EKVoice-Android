@@ -62,6 +62,7 @@
             android:layout_height="wrap_content"
             android:text="A. Smith"
             android:id="@+id/contactName"
+            style="@style/ContentMainBadgeTitle"
             android:layout_alignTop="@+id/title_from_to_dots"
             android:layout_alignStart="@+id/title_from_address" />
 
@@ -70,6 +71,7 @@
             android:layout_height="wrap_content"
             android:text="Lawye"
             android:id="@+id/contactPosition"
+            style="@style/ContentMainBadgeTitle"
             android:layout_below="@+id/title_from_to_dots_divider"
             android:layout_toEndOf="@+id/title_from_address" />
 

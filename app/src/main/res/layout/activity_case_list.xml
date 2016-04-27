@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listV"
+        style="@style/ContentMainBadgeTitle"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/frameLayout"
         android:layout_marginLeft="10dp"
@@ -27,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cases"
+            style="@style/ContentMainBadgeTitle"
             android:id="@+id/textView7"
             android:layout_gravity="center_horizontal|bottom"
             android:textColor="#ffffff"
@@ -36,6 +38,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/ContentMainBadgeTitle"
             android:text="Logout"
             android:onClick="logoutButton"
             android:id="@+id/logout_button"
