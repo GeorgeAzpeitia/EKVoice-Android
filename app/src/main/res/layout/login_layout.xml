@@ -64,6 +64,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
         android:layout_below="@+id/button1"
+        android:scaleType="centerCrop"
         android:scaleX=".40"
         android:scaleY=".40"
         android:layout_centerHorizontal="true"

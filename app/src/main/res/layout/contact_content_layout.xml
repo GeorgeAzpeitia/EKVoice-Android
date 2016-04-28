@@ -3,11 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="20dp"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
     android:visibility="gone"
+
     >
 
     <!-- content header line -->
@@ -116,7 +113,6 @@
                     android:textColor="@color/dim_foreground_material_light"
                     android:textSize="14sp"
                     android:paddingBottom="10dp" />
-
             </RelativeLayout>
 
             <RelativeLayout

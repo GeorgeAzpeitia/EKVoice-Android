@@ -53,16 +53,15 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:id="@+id/scrollView"
-        android:layout_below="@+id/frameLayout"
-        android:layout_toStartOf="@+id/button12" >
+        android:fillViewport="true"
+        android:layout_below="@+id/frameLayout">
 
         <RelativeLayout
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/frameLayout"
+            android:layout_width="match_parent"
             android:id="@+id/relativeLayout2">
 
             <LinearLayout
@@ -122,8 +121,9 @@
                 android:id="@+id/textView8"
                 android:textColor="#0a0a0a"
                 android:textSize="25dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/button11"
+                android:layout_marginTop="40dp" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -145,10 +145,11 @@
                 android:id="@+id/editText"
                 android:maxLines = "4"
                 android:scrollbars = "vertical"
-                android:layout_below="@+id/textView8"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="40dp" />
+                android:layout_alignParentRight="false"
+                android:layout_marginBottom="40dp"
+                android:layout_below="@+id/textView8" />
 
             <Button
                 android:layout_width="wrap_content"
