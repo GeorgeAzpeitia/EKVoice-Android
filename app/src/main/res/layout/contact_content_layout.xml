@@ -7,6 +7,7 @@
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
+    android:visibility="gone"
     >
 
     <!-- content header line -->
@@ -31,6 +32,7 @@
         android:paddingBottom="15dp">
 
         <!-- avatar and name part -->
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
@@ -57,6 +59,7 @@
         </RelativeLayout>
 
         <!-- divider line -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,7 +193,6 @@
         <TextView
             android:id="@+id/content_deadline_time"
             android:layout_width="wrap_content"
-            android:autoLink="all"
             android:textColorHighlight="#649fe5"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/content_deadline_badge"
@@ -203,21 +205,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:id="@+id/button14"
-        android:background="@drawable/plus_64"
-        android:textColor="#ffffff"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Note"
-        android:id="@+id/textView11"
-        android:textColor="#649fe5"
-        android:layout_gravity="center_horizontal" />
 </LinearLayout>
