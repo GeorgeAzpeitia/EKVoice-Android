@@ -24,17 +24,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cases"
-            style="@style/ContentMainBadgeTitle"
-            android:id="@+id/textView7"
-            android:layout_gravity="center_horizontal|bottom"
-            android:textColor="#ffffff"
-            android:textSize="21dp"
-            android:layout_marginBottom="10dp" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,10 +34,21 @@
             android:layout_gravity= "right|bottom"
             android:textColor="#ffffff"
             android:background="#00ffffff"
-            android:textSize="19dp"
+            android:textSize="18dp"
             android:layout_marginRight="10dp"
             android:layout_above="@+id/listV"
             android:layout_alignEnd="@+id/listV" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cases"
+            style="@style/ContentMainBadgeTitle"
+            android:id="@+id/textView7"
+            android:layout_gravity="center_horizontal|bottom"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            android:layout_marginBottom="10dp" />
 
     </FrameLayout>
 

@@ -16,16 +16,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/AddNote"
-            android:id="@+id/textView7"
-            android:layout_gravity="center_horizontal|bottom"
-            android:textColor="#ffffff"
-            android:textSize="21dp"
-            android:layout_marginBottom="10dp" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +26,8 @@
             android:textColor="#ffffff"
             android:background="#649fe5"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="3dp" />
+            android:layout_marginBottom="3dp"
+            android:textSize="18dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -48,7 +39,18 @@
             android:textColor="#ffffff"
             android:background="#649fe5"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="3dp" />
+            android:layout_marginBottom="3dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/AddNote"
+            android:id="@+id/textView7"
+            android:layout_gravity="center_horizontal|bottom"
+            android:textColor="#ffffff"
+            android:textSize="24dp"
+            android:layout_marginBottom="10dp" />
     </FrameLayout>
 
 
@@ -69,20 +71,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true">
+                android:layout_alignParentEnd="true"
+                android:id="@+id/linearLayout">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Voice-to-text"
-                    android:id="@+id/textView17" />
+                    android:id="@+id/textView17"
+                    android:textColor="#0a0a0a" />
 
                 <ToggleButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New ToggleButton"
-                    android:id="@+id/toggleButton" />
+                    android:id="@+id/toggleButton"
+                    android:textColor="#0a0a0a" />
             </LinearLayout>
 
             <LinearLayout
@@ -93,24 +98,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="40dp"
                 android:id="@+id/linearLayout2">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
 
-                    android:text="Time: "
-                    android:id="@+id/textView14"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="25dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="00:00"
-                    android:id="@+id/textView15"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginStart="26dp" />
             </LinearLayout>
 
             <TextView
@@ -121,23 +109,10 @@
                 android:id="@+id/textView8"
                 android:textColor="#0a0a0a"
                 android:textSize="25dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/button11"
-                android:layout_marginTop="40dp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="@string/AddContact"
-                android:layout_gravity="right|bottom"
-                android:drawableRight="@drawable/android_arrow_forward"
-                android:id="@+id/button11"
-                android:textSize="20dp"
                 android:layout_below="@+id/linearLayout2"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="35dp"
-                android:layout_alignEnd="@+id/textView8" />
+                android:layout_toEndOf="@+id/linearLayout2"
+                android:layout_marginTop="63dp" />
+
 
             <EditText
                 android:layout_width="match_parent"
@@ -149,35 +124,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="false"
                 android:layout_marginBottom="40dp"
-                android:layout_below="@+id/textView8" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Call Contact"
-                android:layout_gravity="right|bottom"
-                android:drawableRight="@drawable/ic_phone_48"
-                android:id="@+id/button13"
-                android:textSize="20dp"
-                android:layout_alignTop="@+id/button11"
-                android:layout_alignParentEnd="true"
-                android:layout_alignBottom="@+id/button11"
-                android:enabled="false" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:text="Play"
-                android:gravity="end"
-                android:id="@+id/button12"
-                android:textSize="25dp"
-                android:layout_alignTop="@+id/linearLayout2"
-                android:layout_alignEnd="@+id/button13"
-                android:layout_marginRight="30dp" />
+                android:layout_below="@+id/imageView4" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -186,7 +133,81 @@
                 android:text="UR1"
                 android:id="@+id/textView16"
                 android:layout_alignBottom="@+id/textView8"
-                android:layout_alignStart="@+id/button13" />
+                android:layout_toStartOf="@+id/imageButton"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_marginRight="-10dp"
+                android:layout_marginBottom="3dp"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/playButton"
+                android:background="@mipmap/play_icon"
+                android:layout_alignBottom="@+id/textView14"
+                android:layout_toEndOf="@+id/textView8"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="-20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="00:00"
+                android:id="@+id/textView15"
+                android:textSize="24dp"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_toEndOf="@+id/textView14"
+                android:textColor="#0a0a0a" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+
+                android:text="Time: "
+                android:id="@+id/textView14"
+                android:textSize="25dp"
+                android:layout_alignTop="@+id/linearLayout2"
+                android:layout_toEndOf="@+id/linearLayout2"
+                android:textColor="#0a0a0a" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@color/contentDividerLine"
+                android:layout_above="@+id/textView16"
+                android:layout_alignEnd="@+id/linearLayout"
+                android:layout_marginBottom="17dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton"
+                android:background="@mipmap/plus_icon"
+                android:layout_marginLeft="32dp"
+                android:layout_alignTop="@+id/playButton"
+                android:layout_toEndOf="@+id/playButton" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton2"
+                android:background="@mipmap/phone_icon"
+                android:layout_alignTop="@+id/imageButton"
+                android:layout_toEndOf="@+id/imageButton"
+                android:layout_marginLeft="5dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@color/contentDividerLine"
+                android:id="@+id/imageView4"
+                android:layout_below="@+id/textView8"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp" />
+
         </RelativeLayout>
     </ScrollView>
 
