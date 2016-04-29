@@ -178,8 +178,7 @@
             android:textColor="@color/background_material_dark"
             android:textSize="16sp"
             android:textColorHint="#649fe5"
-            android:textColorLink="#649fe5"
-            android:inputType="phone" />
+            android:textColorLink="#649fe5" />
 
     </LinearLayout>
 
