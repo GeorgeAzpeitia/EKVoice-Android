@@ -1,7 +1,9 @@
 package datacare.ekvoice;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class NoteActivity extends Activity {
 
@@ -10,4 +12,9 @@ public class NoteActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
     }
+
+    public void cancelButton(View v){
+        finish();
+    }
+
 }
