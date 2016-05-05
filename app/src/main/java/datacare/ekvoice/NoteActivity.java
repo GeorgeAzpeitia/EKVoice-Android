@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class NoteActivity extends Activity {
 
-    private ImageButton startButton;
+    private ToggleButton timerButton;
     private Button stopButton;
 
     private TextView timerValue;
@@ -30,9 +31,9 @@ public class NoteActivity extends Activity {
         setContentView(R.layout.activity_note);
 
         timerValue = (TextView) findViewById(R.id.timerValue);
-        startButton = (ImageButton) findViewById(R.id.startButton);
+        timerButton = (ToggleButton) findViewById(R.id. timerButton);
         //startButton.setText("Start");
-        startButton.setOnClickListener(new View.OnClickListener() {
+        timerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick (View view) {
                 if (stop == false) {
                     startTime = SystemClock.uptimeMillis();
