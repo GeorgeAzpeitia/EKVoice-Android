@@ -40,8 +40,13 @@
     </FrameLayout>
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:divider="@color/transparent"
+        android:dividerHeight="15dp"
         android:id="@+id/notesList" />
 
 </LinearLayout>
