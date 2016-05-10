@@ -42,13 +42,14 @@ public class NotesHistoryFragment extends Fragment{
                                     int position, long id) {
 
                 // ListView Clicked item index
-                //int itemPosition = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                //String itemValue = (String) cList.getItemAtPosition(itemPosition);
+                String itemValue = (String) cList.getItemAtPosition(itemPosition);
 
-                Intent intent = new Intent(getActivity(), NoteActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(getActivity(), NoteActivity.class);
+                    startActivity(intent);
+
 
             }
 
