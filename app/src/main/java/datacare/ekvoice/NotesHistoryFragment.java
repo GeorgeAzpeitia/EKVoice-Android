@@ -46,10 +46,11 @@ public class NotesHistoryFragment extends Fragment{
                 int itemPosition = position;
 
                 // ListView Clicked item value
-                String itemValue = (String) cList.getItemAtPosition(itemPosition);
+                Case.Note itemValue = (Case.Note) cList.getItemAtPosition(itemPosition);
 
-                    Intent intent = new Intent(getActivity(), NoteActivity.class);
-                    startActivity(intent);
+                Intent intent = new Intent(getActivity(), NoteActivity.class);
+                intent.putExtra("selectedNote", itemValue);
+                startActivity(intent);
 
 
             }
