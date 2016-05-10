@@ -110,10 +110,10 @@
                 android:text="@string/ReportNumber"
                 android:id="@+id/textView8"
                 android:textColor="#0a0a0a"
-                android:textSize="25dp"
-                android:layout_below="@+id/linearLayout2"
-                android:layout_toEndOf="@+id/linearLayout2"
-                android:layout_marginTop="63dp" />
+                android:textSize="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/textView12"
+                android:layout_alignParentStart="true" />
 
 
             <EditText
@@ -140,35 +140,11 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="UR1"
                 android:id="@+id/textView16"
+                android:textSize="14dp"
+                android:layout_marginRight="-35dp"
                 android:layout_alignBottom="@+id/textView8"
-                android:layout_toStartOf="@+id/imageButton"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentStart="false"
-                android:layout_marginRight="-10dp"
-                android:layout_marginBottom="3dp"
-                android:textSize="18dp" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/playButton"
-                android:background="@mipmap/play_icon"
-                android:layout_alignBottom="@+id/textView14"
-                android:layout_toEndOf="@+id/textView8"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="-20dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="00:00"
-                android:id="@+id/textView15"
-                android:textSize="24dp"
-                android:layout_below="@+id/linearLayout2"
-                android:layout_toEndOf="@+id/textView14"
-                android:textColor="#0a0a0a"
-                android:paddingTop="2dp" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="2dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -178,75 +154,135 @@
                 android:text="Time: "
                 android:id="@+id/textView14"
                 android:textSize="25dp"
-                android:layout_alignTop="@+id/linearLayout2"
-                android:layout_toEndOf="@+id/linearLayout2"
                 android:textColor="#0a0a0a"
-                android:layout_marginLeft="13dp" />
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_toEndOf="@+id/linearLayout2"
+                android:layout_marginTop="-20dp" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:src="@color/contentDividerLine"
+                android:id="@+id/imageView5"
                 android:layout_above="@+id/textView16"
-                android:layout_alignEnd="@+id/linearLayout"
-                android:layout_marginBottom="12dp" />
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="13dp" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton"
                 android:background="@mipmap/plus_icon"
-                android:layout_marginLeft="28dp"
-                android:layout_alignTop="@+id/playButton"
-                android:layout_toEndOf="@+id/playButton" />
+                android:layout_marginLeft="10dp"
+                android:layout_alignStart="@+id/textView14"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/textView14" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton2"
                 android:background="@mipmap/phone_icon"
-                android:layout_alignTop="@+id/imageButton"
-                android:layout_toEndOf="@+id/imageButton"
-                android:layout_marginLeft="15dp" />
+                android:layout_marginEnd="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="7dp" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:src="@color/contentDividerLine"
                 android:id="@+id/imageView4"
+                android:layout_marginTop="7dp"
                 android:layout_below="@+id/textView8"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Start Timer"
-                android:id="@+id/textView11"
-                android:textSize="12dp"
-                android:layout_below="@+id/textView15"
-                android:layout_alignEnd="@+id/playButton"
-                android:layout_marginRight="-5dp" />
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Contact"
                 android:id="@+id/textView12"
-                android:layout_below="@+id/textView15"
-                android:layout_toEndOf="@+id/playButton"
                 android:textSize="12dp"
-                android:layout_marginLeft="15dp" />
+                android:layout_below="@+id/imageButton"
+                android:layout_alignEnd="@+id/imageButton"
+                android:layout_marginRight="-8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Call"
                 android:id="@+id/textView13"
-                android:layout_below="@+id/textView15"
-                android:layout_alignEnd="@+id/imageButton2"
                 android:layout_marginRight="15dp"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:layout_below="@+id/imageButton2"
+                android:layout_alignStart="@+id/imageButton2"
+                android:layout_marginLeft="14dp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:id="@+id/timerValue"
+                android:textSize="20dp"
+                android:layout_alignTop="@+id/textView14"
+                android:layout_toEndOf="@+id/textView14"
+                android:layout_marginTop="4dp"
+                android:textColor="#050505" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@color/contentDividerLine"
+                android:id="@+id/imageView6"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="26dp"
+                android:layout_below="@+id/textView14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="James Lick"
+                android:id="@+id/textView15"
+                android:layout_alignTop="@+id/imageButton"
+                android:layout_toStartOf="@+id/linearLayout"
+                android:textSize="18dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="7dp"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(408)123-5678"
+                android:id="@+id/textView18"
+                android:textSize="12dp"
+                android:layout_below="@+id/textView15"
+                android:layout_alignStart="@+id/textView15"
+                android:layout_marginLeft="2dp"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="blahblah@gmail.com"
+                android:id="@+id/textView19"
+                android:layout_below="@+id/textView18"
+                android:layout_alignStart="@+id/textView18"
+                android:textSize="12dp"
+                />
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timerButton"
+                android:checked="true"
+                android:textOn="Start Timer"
+                android:textOff="Stop Timer"
+                android:layout_alignBottom="@+id/textView14"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-7dp"
+                android:drawableTint="#649fe5" />
 
         </RelativeLayout>
     </ScrollView>

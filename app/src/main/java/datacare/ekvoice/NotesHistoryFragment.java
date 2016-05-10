@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import java.util.Collections;
 /**
  * Created by george on 4/19/16.
  */
+
 public class NotesHistoryFragment extends Fragment{
     private ArrayList<Case.Note> notes;
     @Override
@@ -31,9 +33,29 @@ public class NotesHistoryFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle state) {
         View v = inflater.inflate(R.layout.notes_history, container, false);
-        NoteListAdapter notesAdapter = new NoteListAdapter(getActivity(), notes);
-        ListView cList = (ListView) v.findViewById(R.id.notesList);
+        final NoteListAdapter notesAdapter = new NoteListAdapter(getActivity(), notes);
+        final ListView cList = (ListView) v.findViewById(R.id.notesList);
         cList.setAdapter(notesAdapter);
+        cList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+
+                // ListView Clicked item value
+                String itemValue = (String) cList.getItemAtPosition(itemPosition);
+
+                    Intent intent = new Intent(getActivity(), NoteActivity.class);
+                    startActivity(intent);
+
+
+            }
+
+        });
+
 
 //        Button addNote = (Button) v.findViewById(R.id.button9);
 //        addNote.setOnClickListener(new View.OnClickListener() {
