@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,14 +35,14 @@ public class NotesHistoryFragment extends Fragment{
         ListView cList = (ListView) v.findViewById(R.id.notesList);
         cList.setAdapter(notesAdapter);
 
-        Button addNote = (Button) v.findViewById(R.id.button9);
-        addNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent note = new Intent(getActivity(), NoteActivity.class);
-                startActivity(note);
-            }
-        });
+//        Button addNote = (Button) v.findViewById(R.id.button9);
+//        addNote.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent note = new Intent(getActivity(), NoteActivity.class);
+//                startActivity(note);
+//            }
+//        });
         return v;
     }
     public static Fragment newInstance(ArrayList<Case.Note> notesParam){
@@ -52,6 +53,7 @@ public class NotesHistoryFragment extends Fragment{
         }
         return frag;
     }
+
 
     private static class NoteListAdapter extends ArrayAdapter<Case.Note> {
 

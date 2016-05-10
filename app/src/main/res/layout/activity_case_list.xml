@@ -1,23 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context="datacare.ekvoice.CaseList">
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listV"
-        style="@style/ContentMainBadgeTitle"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/frameLayout"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:cacheColorHint="@android:color/transparent"
-        android:paddingTop="15dp"
-        android:divider="@color/transparent"
-        android:dividerHeight="15dp"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:orientation="horizontal"
@@ -39,7 +22,7 @@
             android:textColor="#ffffff"
             android:background="#00ffffff"
             android:textSize="18dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:layout_above="@+id/listV"
             android:layout_alignEnd="@+id/listV" />
 
@@ -56,4 +39,19 @@
 
     </FrameLayout>
 
-</RelativeLayout>
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/listV"
+        style="@style/ContentMainBadgeTitle"
+        android:cacheColorHint="@android:color/transparent"
+        android:paddingTop="15dp"
+        android:divider="@color/transparent"
+        android:dividerHeight="10dp"
+        android:drawSelectorOnTop="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:scrollingCache="true"
+        android:clipToPadding="false"/>
+
+</LinearLayout>

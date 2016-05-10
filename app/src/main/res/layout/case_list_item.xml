@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_cell">
+    android:background="@drawable/rounded_cell"
+    android:elevation="5dp">
 
 
     <TextView
@@ -11,7 +12,7 @@
         android:text="Smith"
         android:id="@+id/nameText"
         android:layout_gravity="left|center_vertical"
-        android:textSize="30dp"
+        android:textSize="28dp"
         android:textIsSelectable="false"
         android:layout_marginLeft="12dp"
         android:layout_alignParentTop="true"
@@ -24,7 +25,7 @@
         android:text="W10000001"
         android:id="@+id/caseNumber"
         android:layout_gravity="right|center_vertical"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@android:color/black"
         android:layout_alignParentTop="false"
         android:layout_alignParentRight="true"
