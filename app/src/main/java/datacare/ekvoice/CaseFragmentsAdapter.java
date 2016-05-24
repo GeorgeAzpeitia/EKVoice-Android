@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.ListFragment;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
     private static Case myCase;
     private static ArrayList<Contact> contacts;
     private Button addNote;
+    private PagerTabStrip tabs;
 
     @Override
     protected void onCreate(final Bundle state){
@@ -45,6 +47,8 @@ public class CaseFragmentsAdapter extends FragmentActivity {
 
         pager = (ViewPager)findViewById(R.id.pager);
         pager.setAdapter(adapter);
+        tabs = (PagerTabStrip) findViewById(R.id.caseTabStrip);
+        tabs.setDrawFullUnderline(false);
         addNote = (Button) findViewById(R.id.addNoteBtn);
         addNote.setOnClickListener(new View.OnClickListener() {
             @Override

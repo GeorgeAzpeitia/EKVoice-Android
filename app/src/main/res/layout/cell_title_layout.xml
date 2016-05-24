@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_cell"
     android:baselineAligned="false"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:elevation="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"

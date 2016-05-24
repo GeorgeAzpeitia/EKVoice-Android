@@ -47,6 +47,7 @@
         android:layout_height="fill_parent"
         >
         <android.support.v4.view.PagerTabStrip
+            android:id="@+id/caseTabStrip"
             android:paddingTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
