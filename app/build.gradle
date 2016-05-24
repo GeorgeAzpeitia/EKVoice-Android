@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile files('libs/pocketsphinx-android-5prealpha-nolib.jar')
     compile 'com.ramotion.foldingcell:folding-cell:1.0.0'
+    compile files('libs/firebase-client-android-2.5.2.jar')
 }
 
 ant.importBuild 'assets.xml'

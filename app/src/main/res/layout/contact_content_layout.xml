@@ -45,6 +45,19 @@
 
         </RelativeLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add\nNote"
+            android:id="@+id/button11"
+            android:layout_gravity="right"
+            android:onClick="addNote"
+            android:textColor="#649fe5"
+            android:background="#ffffff"
+            android:drawableRight="@mipmap/addnote"
+            android:layout_marginTop="-45dp"
+            android:paddingRight="-2dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,8 +96,8 @@
                     android:id="@+id/content_from_address_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/content_from_badge"
-                    android:layout_below="@id/content_from_badge"
+                    android:layout_alignStart="@+id/content_from_badge"
+                    android:layout_below="@+id/content_from_badge"
                     android:text="@string/content_from1_mock"
                     android:textColor="@color/dim_foreground_material_light"
                     android:textSize="16sp"
@@ -94,8 +107,8 @@
                     android:id="@+id/content_from_address_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/content_from_address_1"
-                    android:layout_below="@id/content_from_address_1"
+                    android:layout_alignStart="@+id/content_from_address_1"
+                    android:layout_below="@+id/content_from_address_1"
                     android:text="@string/content_from2_mock"
                     android:textColor="@color/dim_foreground_material_light"
                     android:textSize="14sp"

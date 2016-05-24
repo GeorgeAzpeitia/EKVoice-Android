@@ -31,16 +31,15 @@ public class NoteActivity extends Activity {
         setContentView(R.layout.activity_note);
 
         timerValue = (TextView) findViewById(R.id.timerValue);
-        timerButton = (ToggleButton) findViewById(R.id. timerButton);
+        timerButton = (ToggleButton) findViewById(R.id.timerButton);
         //startButton.setText("Start");
         timerButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick (View view) {
+            public void onClick(View view) {
                 if (stop == false) {
                     startTime = SystemClock.uptimeMillis();
                     customHandler.postDelayed(updateTimerThread, 0);
                     stop = true;
-                }
-                    else {
+                } else {
                     //startButton.setText("Start");
                     stop = false;
                 }
@@ -65,7 +64,7 @@ public class NoteActivity extends Activity {
         }
     };
 
-    public void cancelButton(View v){
+    public void cancelButton(View v) {
         finish();
     }
 
