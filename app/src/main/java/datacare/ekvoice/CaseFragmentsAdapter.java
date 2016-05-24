@@ -1,6 +1,7 @@
 package datacare.ekvoice;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +31,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
     MyAdapter adapter;
     private static Case myCase;
     private static ArrayList<Contact> contacts;
+    private Button addNote;
 
     @Override
     protected void onCreate(final Bundle state){
@@ -42,6 +45,15 @@ public class CaseFragmentsAdapter extends FragmentActivity {
 
         pager = (ViewPager)findViewById(R.id.pager);
         pager.setAdapter(adapter);
+        addNote = (Button) findViewById(R.id.addNoteBtn);
+        addNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CaseFragmentsAdapter.this, NoteActivity.class);
+                i.putExtra("CASE_EXTRA", myCase);
+                startActivity(i);
+            }
+        });
 
     }
 

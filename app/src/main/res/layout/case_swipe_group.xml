@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add\nNote"
-            android:id="@+id/button9"
+            android:id="@+id/addNoteBtn"
             android:layout_gravity="right|bottom"
             android:drawableRight="@drawable/plus_icon"
             android:drawablePadding="5dp"
