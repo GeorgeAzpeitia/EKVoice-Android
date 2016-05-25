@@ -25,15 +25,9 @@ public class ContactListFragment extends Fragment {
     private ArrayList<Contact> contacts;
 
     @Override
-    public void onCreate(Bundle state) {
-        super.onCreate(state);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle state) {
         View v = inflater.inflate(R.layout.contacts_list, container, false);
-
 
         //get our list view
         ListView cList = (ListView) v.findViewById(R.id.contactsList);
@@ -53,15 +47,6 @@ public class ContactListFragment extends Fragment {
             }
         });
 
-
-        /*Button addNote = (Button) v.findViewById(R.id.button14);
-        addNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent note = new Intent(getActivity(), NoteActivity.class);
-                startActivity(note);
-            }
-        }); */
         return v;
     }
 
@@ -73,19 +58,28 @@ public class ContactListFragment extends Fragment {
         return frag;
     }
 
-    private class ContactListAdapter extends ArrayAdapter<Contact> {
+    private  class ContactListAdapter extends ArrayAdapter<Contact> {
         public ContactListAdapter(Context context, ArrayList<Contact> users) {
             super(context, 0, users);
         }
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            Contact aContact = getItem(position);
+            final Contact aContact = getItem(position);
             if (convertView == null){
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.cell, parent, false);
             }
-
+            Button addNote = (Button) convertView.findViewById(R.id.button11);
+            addNote.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getContext(),NoteActivity.class);
+                    i.putExtra("SELECTED CONTACT", aContact);
+                    startActivity(i);
+                }
+            });
             TextView contactName = (TextView) convertView.findViewById(R.id.contactName);
             TextView contactPosition = (TextView) convertView.findViewById(R.id.contactPosition);
+
             contactName.setText(aContact.name);
             contactPosition.setText(aContact.position);
             return convertView;
