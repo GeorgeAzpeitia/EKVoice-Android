@@ -24,6 +24,7 @@ import java.util.Collections;
 
 public class NotesHistoryFragment extends Fragment{
     private ArrayList<Case.Note> notes;
+    private Case storedCase;
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -49,6 +50,7 @@ public class NotesHistoryFragment extends Fragment{
                 Case.Note itemValue = (Case.Note) cList.getItemAtPosition(itemPosition);
 
                 Intent intent = new Intent(getActivity(), NoteActivity.class);
+                intent.putExtra("CASE_EXTRA", storedCase);
                 intent.putExtra("selectedNote", itemValue);
                 startActivity(intent);
 
@@ -68,8 +70,9 @@ public class NotesHistoryFragment extends Fragment{
 //        });
         return v;
     }
-    public static Fragment newInstance(ArrayList<Case.Note> notesParam){
+    public static Fragment newInstance(ArrayList<Case.Note> notesParam, Case caseParam){
         NotesHistoryFragment frag = new NotesHistoryFragment();
+        frag.storedCase = caseParam;
         if (notesParam != null && notesParam.size() != 0) {
             Collections.reverse(notesParam);
             frag.notes = notesParam;

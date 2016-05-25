@@ -51,12 +51,12 @@
             android:text="Add\nNote"
             android:id="@+id/button11"
             android:layout_gravity="right"
-            android:onClick="addNote"
             android:textColor="#649fe5"
             android:background="#ffffff"
             android:drawableRight="@mipmap/addnote"
             android:layout_marginTop="-45dp"
-            android:paddingRight="-2dp" />
+            android:paddingRight="-2dp"
+            android:focusable="false"/>
 
         <TextView
             android:layout_width="wrap_content"

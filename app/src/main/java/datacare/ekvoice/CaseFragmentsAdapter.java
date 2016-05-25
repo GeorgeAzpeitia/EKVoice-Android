@@ -111,7 +111,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
 
                 case 1:
                     if(fragments[position] == null){
-                        fragments[position] = NotesHistoryFragment.newInstance(myCase.notes);
+                        fragments[position] = NotesHistoryFragment.newInstance(myCase.notes, myCase);
                         return fragments[position];
                     }
 
