@@ -21,8 +21,17 @@ public class NoteActivity extends Activity {
     private long startTime = 0L;
     private Handler customHandler = new Handler();
     private Case storedCase;
-    private Case.Note storedNote;
+    private Case.Note note;
+    private Contact contact;
+    private Boolean emptyNoteWithContact = false;
     private Boolean editingNote = false;
+    private EditText editBox;
+    private TextView addContactLabel;
+    private TextView contactName;
+    private TextView contactPhone;
+    private TextView contactEmail;
+    private ImageButton callButton;
+    private Button saveButton;
     long timeInSeconds = 0L;
     long timeSwapBuff = 0L;
     long updatedTime = 0L;
@@ -33,16 +42,34 @@ public class NoteActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
-        Intent i = getIntent();
-        storedCase =(Case) i.getSerializableExtra("EXTRA_CASE");
-        if(i.hasExtra("selectedNote")){
-            editingNote = true;
-            storedNote = (Case.Note) i.getSerializableExtra("selectedNote");
-            populateFromNote();
-        }
 
         timerValue = (TextView) findViewById(R.id.timerValue);
         timerButton = (ToggleButton) findViewById(R.id.timerButton);
+        addContactLabel = (TextView) findViewById(R.id.addNoteContactLabel);
+        contactName = (TextView) findViewById(R.id.addNoteContactName);
+        contactPhone = (TextView) findViewById(R.id.addNoteContactPhone);
+        contactEmail = (TextView) findViewById(R.id.addNoteContactEmail);
+        callButton = (ImageButton) findViewById(R.id.addNoteCallButton);
+        saveButton = (Button) findViewById(R.id.addNoteSave);
+        editBox = (EditText) findViewById(R.id.addNoteEditText);
+
+        contactName.setVisibility(View.INVISIBLE);
+        contactPhone.setVisibility(View.INVISIBLE);
+        contactEmail.setVisibility(View.INVISIBLE);
+        callButton.setVisibility(View.INVISIBLE);
+        callButton.setEnabled(false);
+        Intent i = getIntent();
+        storedCase =(Case) i.getSerializableExtra("EXTRA_CASE");
+
+        if(i.hasExtra("selectedNote")){
+            editingNote = true;
+            note = (Case.Note) i.getSerializableExtra("selectedNote");
+            populateFromNote();
+        }else if (i.hasExtra("selectedContact")){
+            emptyNoteWithContact = true;
+            contact = (Contact) i.getSerializableExtra("selectedContact");
+            populateFromContact();
+        }
         //startButton.setText("Start");
         timerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -56,13 +83,59 @@ public class NoteActivity extends Activity {
                 }
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(editBox.getText().toString().isEmpty()){
+                    finish();
+                }else if(editingNote){
+                    note.noteText = editBox.getText().toString();
+                    if(contact != note.contact){
+                        note.contact = contact;
+                    }
+
+                }else{
+
+                }
+            }
+        });
+
+
     }
 
     private void populateFromNote(){
-        EditText editBox = (EditText) findViewById(R.id.addNoteEditText);
-        editBox.setText(storedNote.noteText);
-    }
 
+        editBox.setText(note.noteText);
+        timerValue.setText(note.hours + ":" + note.minutes + ":"
+                + String.format("%02d", note.seconds));
+        if(note.contact != null){
+
+            contact = note.contact;
+            populateFromContact();
+        }
+
+
+    }
+    private void populateFromContact(){
+        addContactLabel.setText("Change Contact");
+        if(contact.name != null){
+            contactName.setText(contact.name);
+            contactName.setVisibility(View.VISIBLE);
+        }
+        if(contact.email != null){
+            contactEmail.setText(contact.email);
+            contactEmail.setVisibility(View.VISIBLE);
+        }
+        if(contact.phoneNumber != null){
+            contactPhone.setText(contact.phoneNumber);
+            contactPhone.setVisibility(View.VISIBLE);
+            //Needs to be implemented
+//            callButton.setEnabled(true);
+//            callButton.setVisibility(View.VISIBLE);
+        }
+
+    }
     private Runnable updateTimerThread = new Runnable() {
         @Override
         public void run() {

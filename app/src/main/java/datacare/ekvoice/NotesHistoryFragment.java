@@ -81,7 +81,7 @@ public class NotesHistoryFragment extends Fragment{
     }
 
 
-    private static class NoteListAdapter extends ArrayAdapter<Case.Note> {
+    private class NoteListAdapter extends ArrayAdapter<Case.Note> {
 
         public NoteListAdapter(Context context, ArrayList<Case.Note> users) {
             super(context, 0, users);

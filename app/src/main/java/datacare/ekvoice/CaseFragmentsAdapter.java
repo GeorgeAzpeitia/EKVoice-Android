@@ -89,7 +89,7 @@ public class CaseFragmentsAdapter extends FragmentActivity {
         }
     }
 
-    public static class MyAdapter extends FragmentPagerAdapter {
+    public class MyAdapter extends FragmentPagerAdapter {
         private String tabTitles[] = new String[] { "Contacts", "Notes"};
         public MyAdapter(FragmentManager fm) {
             super(fm);

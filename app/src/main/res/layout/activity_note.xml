@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Savebutton"
-            android:id="@+id/button9"
+            android:id="@+id/addNoteSave"
             android:layout_gravity="right|bottom"
             android:drawablePadding="5dp"
             android:textColor="#ffffff"
@@ -74,7 +74,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/linearLayout">
+                android:id="@+id/linearLayout"
+                android:visibility="gone"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -112,7 +114,7 @@
                 android:textColor="#0a0a0a"
                 android:textSize="16dp"
                 android:layout_marginTop="25dp"
-                android:layout_below="@+id/textView12"
+                android:layout_below="@+id/addNoteContactLabel"
                 android:layout_alignParentStart="true" />
 
 
@@ -132,7 +134,9 @@
                 android:textColorHint="#cfcece"
                 android:background="@android:color/transparent"
                 android:paddingLeft="16dp"
-                android:paddingTop="3dp" />
+                android:paddingTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -172,7 +176,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton"
+                android:id="@+id/addNoteAddContact"
                 android:background="@mipmap/plus_icon"
                 android:layout_marginLeft="10dp"
                 android:layout_alignStart="@+id/textView14"
@@ -182,7 +186,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton2"
+                android:id="@+id/addNoteCallButton"
                 android:background="@mipmap/phone_icon"
                 android:layout_marginEnd="36dp"
                 android:layout_alignParentEnd="true"
@@ -201,10 +205,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Add Contact"
-                android:id="@+id/textView12"
+                android:id="@+id/addNoteContactLabel"
                 android:textSize="12dp"
-                android:layout_below="@+id/imageButton"
-                android:layout_alignEnd="@+id/imageButton"
+                android:layout_below="@+id/addNoteAddContact"
+                android:layout_alignEnd="@+id/addNoteAddContact"
                 android:layout_marginRight="-8dp" />
 
             <TextView
@@ -214,8 +218,8 @@
                 android:id="@+id/textView13"
                 android:layout_marginRight="15dp"
                 android:textSize="12dp"
-                android:layout_below="@+id/imageButton2"
-                android:layout_alignStart="@+id/imageButton2"
+                android:layout_below="@+id/addNoteCallButton"
+                android:layout_alignStart="@+id/addNoteCallButton"
                 android:layout_marginLeft="14dp"
                 android:layout_marginBottom="2dp" />
 
@@ -243,22 +247,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="James Lick"
-                android:id="@+id/textView15"
-                android:layout_alignTop="@+id/imageButton"
-                android:layout_toStartOf="@+id/linearLayout"
+                android:id="@+id/addNoteContactName"
+                android:layout_alignTop="@+id/addNoteAddContact"
                 android:textSize="18dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="7dp"
-                 />
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/addNoteContactLabel" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(408)123-5678"
-                android:id="@+id/textView18"
+                android:id="@+id/addNoteContactPhone"
                 android:textSize="12dp"
-                android:layout_below="@+id/textView15"
-                android:layout_alignStart="@+id/textView15"
+                android:layout_below="@+id/addNoteContactName"
+                android:layout_alignStart="@+id/addNoteContactName"
                 android:layout_marginLeft="2dp"
                  />
 
@@ -266,9 +270,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="blahblah@gmail.com"
-                android:id="@+id/textView19"
-                android:layout_below="@+id/textView18"
-                android:layout_alignStart="@+id/textView18"
+                android:id="@+id/addNoteContactEmail"
+                android:layout_below="@+id/addNoteContactPhone"
+                android:layout_alignStart="@+id/addNoteContactPhone"
                 android:textSize="12dp"
                 />
 

@@ -34,5 +34,9 @@ public class Case implements Serializable{
         public String user;
         public String date;
         public String noteText;
+        public Contact contact;
+        public int hours = 0;
+        public int minutes = 0;
+        public int seconds = 0;
     }
 }

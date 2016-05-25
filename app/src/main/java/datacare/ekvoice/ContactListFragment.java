@@ -73,7 +73,7 @@ public class ContactListFragment extends Fragment {
         return frag;
     }
 
-    private static class ContactListAdapter extends ArrayAdapter<Contact> {
+    private class ContactListAdapter extends ArrayAdapter<Contact> {
         public ContactListAdapter(Context context, ArrayList<Contact> users) {
             super(context, 0, users);
         }
@@ -86,7 +86,6 @@ public class ContactListFragment extends Fragment {
 
             TextView contactName = (TextView) convertView.findViewById(R.id.contactName);
             TextView contactPosition = (TextView) convertView.findViewById(R.id.contactPosition);
-
             contactName.setText(aContact.name);
             contactPosition.setText(aContact.position);
             return convertView;
