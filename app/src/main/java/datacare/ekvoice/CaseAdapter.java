@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Robin on 3/1/2016.
+ * This is the adapter created to populate the list of cases in CaseList.java
  */
 public class CaseAdapter extends ArrayAdapter<Case> {
     public CaseAdapter(Context context, ArrayList<Case> users) {

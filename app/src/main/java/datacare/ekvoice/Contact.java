@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by Robin on 3/5/2016.
+ * Similar to Case, this simply holds the data for each individual contact for each case.
  */
 public class Contact implements Serializable{
     public String position;

@@ -6,6 +6,9 @@ import java.util.Vector;
 
 /**
  * Created by Robin on 3/5/2016.
+ * This is the Case object which serves as a simple plain-old data object to hold the data we pull
+ * from the JSON. A case primarily consists of three sets of data: The main client information, a set
+ * of contacts for that client, and a list of notes for that case.
  */
 public class Case implements Serializable{
 

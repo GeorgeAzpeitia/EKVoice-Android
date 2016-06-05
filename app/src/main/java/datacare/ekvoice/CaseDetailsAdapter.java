@@ -6,26 +6,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.ListFragment;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import datacare.ekvoice.R;
-
 /**
  * Created by george on 4/11/16.
+ * After selecting a case in CaseList.java the user will be sent to this activity which serves to hold
+ * the swipe pager for the contact list and the note history.
  */
-public class CaseFragmentsAdapter extends FragmentActivity {
+public class CaseDetailsAdapter extends FragmentActivity {
     static final int NUM_PAGES = 2;
     ViewPager pager;
     MyAdapter adapter;
@@ -52,14 +46,15 @@ public class CaseFragmentsAdapter extends FragmentActivity {
         addNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CaseFragmentsAdapter.this, NoteActivity.class);
+                Intent i = new Intent(CaseDetailsAdapter.this, NoteActivity.class);
                 i.putExtra("CASE_EXTRA", myCase);
                 startActivity(i);
             }
         });
 
     }
-
+    //Tnis method will check to see if each contact has been populated by the JSON parser if the
+    //contact is populated it will add it to the list of contacts to display.
     private void makeContactList(Case myCase){
         contacts = new ArrayList<>();
         if(myCase.MD != null){
@@ -87,7 +82,9 @@ public class CaseFragmentsAdapter extends FragmentActivity {
             contacts.add(myCase.serviceProvider);
         }
     }
-
+    //This adapter will handle the contactlist and noteshistory fragments for the swipe pager. This
+    //is mostly implemented inside the getItem method. Note the the information passed into the
+    // fragments through the constructors.
     public class MyAdapter extends FragmentPagerAdapter {
         private String tabTitles[] = new String[] { "Contacts", "Notes"};
         public MyAdapter(FragmentManager fm) {

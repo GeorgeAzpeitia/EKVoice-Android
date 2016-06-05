@@ -2,6 +2,8 @@ package datacare.ekvoice;
 
 /**
  * Created by Lou on 1/31/2016.
+ * This wrapper works to detect whether there is internet connectivity or not. It then routes a
+ * speech to text request to the appropiate speech engine.
  */
 
 import android.app.Activity;

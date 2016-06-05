@@ -9,9 +9,11 @@ import android.widget.ListView;
 
 import datacare.ekvoice.util.JSONToCase;
 import java.util.ArrayList;
-
+/**
+ * created by Robin
+ * This activity holds the list of cases pulled from the JSON and displays them to the user.
+ */
 public class CaseList extends Activity {
-    Intent intent = getIntent();
     private ListView listView;
     private ArrayList<Case> caseNames;
     CaseAdapter itemsAdapter;
@@ -34,7 +36,7 @@ public class CaseList extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Case toExpand = itemsAdapter.getItem(position);
 
-                Intent expandEvent = new Intent(CaseList.this, CaseFragmentsAdapter.class);
+                Intent expandEvent = new Intent(CaseList.this, CaseDetailsAdapter.class);
                 expandEvent.putExtra("caseToExpand", toExpand);
                 startActivity(expandEvent);
             }

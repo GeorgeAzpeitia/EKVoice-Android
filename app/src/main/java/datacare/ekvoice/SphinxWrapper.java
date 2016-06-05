@@ -1,6 +1,8 @@
 package datacare.ekvoice;
 /**
  * Created by george on 1/30/16.
+ * This is the actual interface for the sphinx speech engine, this is the code that will be executed
+ * when pocketsphinx detects certain events.
  */
 import android.app.Activity;
 import android.content.Intent;

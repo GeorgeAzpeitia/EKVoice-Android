@@ -17,6 +17,8 @@ import com.firebase.client.FirebaseError;
 
 /**
  * Created by kchinnap on 3/1/2016.
+ * A simple login activity,Because we don't have access to any way of actual user authentication we
+ * simply have the login button do a login without checking credentials.
  */
 public class LoginActivity extends Activity{
 

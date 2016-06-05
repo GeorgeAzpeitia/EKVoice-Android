@@ -12,6 +12,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+/**
+ * This is the activity called when creating some sort of note it has three main ways of being called.
+ * As a blank empty note, editing an existing note, or a new note with a contact already selected.
+ */
 public class NoteActivity extends Activity {
 
     private ToggleButton timerButton;

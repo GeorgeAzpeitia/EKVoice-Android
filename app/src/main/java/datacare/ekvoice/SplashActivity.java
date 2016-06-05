@@ -8,6 +8,7 @@ import android.view.Menu;
 
 /*
 created by orodrig2 on april 7th.
+A simple splash screen for when the app loads.
  */
 
 public class SplashActivity extends Activity {

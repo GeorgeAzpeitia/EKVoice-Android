@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 /**
  * Created by george on 4/11/16.
+ * This fragment holds and populates the list of contacts to be displayed inside the CaseDetailsAdapter
  */
 public class ContactListFragment extends Fragment {
     private ArrayList<Contact> contacts;
@@ -43,7 +44,6 @@ public class ContactListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                ((FoldingCell) view).toggle(false);
-                //contactsAdapter.registerToggle(position);
             }
         });
 
@@ -57,7 +57,7 @@ public class ContactListFragment extends Fragment {
         }
         return frag;
     }
-
+    //This is the adapter for populating the contacts list.
     private  class ContactListAdapter extends ArrayAdapter<Contact> {
         public ContactListAdapter(Context context, ArrayList<Contact> users) {
             super(context, 0, users);

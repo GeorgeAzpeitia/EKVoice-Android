@@ -20,6 +20,8 @@ import java.util.Collections;
 
 /**
  * Created by george on 4/19/16.
+ * This fragment serves to take the list of notes pulled from the data and populates a listview with
+ * each note sorted from newest to oldest.
  */
 
 public class NotesHistoryFragment extends Fragment{

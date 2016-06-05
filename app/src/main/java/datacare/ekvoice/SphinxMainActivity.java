@@ -34,7 +34,11 @@ import edu.cmu.pocketsphinx.Hypothesis;
 import edu.cmu.pocketsphinx.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
 
-public class MainActivity extends Activity {
+/**
+ * This is the old main activity used when implementing pocketsphinx as a proof of concept. It should
+ * be observed as an example of how to implement the voice to speech portion of the application.
+ */
+public class SphinxMainActivity extends Activity {
 
 //    private Button startSpeech, switchToSphinx;
 //    private EditText speechOutput;
