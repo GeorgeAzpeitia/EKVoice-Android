@@ -58,16 +58,6 @@ public class NotesHistoryFragment extends Fragment{
             }
 
         });
-
-
-//        Button addNote = (Button) v.findViewById(R.id.button9);
-//        addNote.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent note = new Intent(getActivity(), NoteActivity.class);
-//                startActivity(note);
-//            }
-//        });
         return v;
     }
     public static Fragment newInstance(ArrayList<Case.Note> notesParam, Case caseParam){

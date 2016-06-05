@@ -59,7 +59,7 @@ public class NoteActivity extends Activity {
         callButton.setVisibility(View.INVISIBLE);
         callButton.setEnabled(false);
         Intent i = getIntent();
-        storedCase =(Case) i.getSerializableExtra("EXTRA_CASE");
+        storedCase =(Case) i.getSerializableExtra("CASE_EXTRA");
 
         if(i.hasExtra("selectedNote")){
             editingNote = true;
@@ -91,12 +91,19 @@ public class NoteActivity extends Activity {
                     finish();
                 }else if(editingNote){
                     note.noteText = editBox.getText().toString();
-                    if(contact != note.contact){
+                    if(contact == null || contact != note.contact){
                         note.contact = contact;
                     }
-
+                    storedCase.notes.remove(note);
+                    storedCase.notes.add(note);
                 }else{
-
+                    note = new Case.Note();
+                    note.noteText = editBox.getText().toString();
+                    if(contact != null){
+                        note.contact = contact;
+                    }
+                    storedCase.notes.add(note);
+                    finish();
                 }
             }
         });
