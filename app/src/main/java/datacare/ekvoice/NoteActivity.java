@@ -34,6 +34,7 @@ public class NoteActivity extends Activity {
     private TextView contactName;
     private TextView contactPhone;
     private TextView contactEmail;
+    private TextView callLabel;
     private ImageButton callButton;
     private Button saveButton;
     long timeInSeconds = 0L;
@@ -56,14 +57,16 @@ public class NoteActivity extends Activity {
         callButton = (ImageButton) findViewById(R.id.addNoteCallButton);
         saveButton = (Button) findViewById(R.id.addNoteSave);
         editBox = (EditText) findViewById(R.id.addNoteEditText);
+        callLabel = (TextView) findViewById(R.id.noteCallLabel);
 
         contactName.setVisibility(View.INVISIBLE);
         contactPhone.setVisibility(View.INVISIBLE);
         contactEmail.setVisibility(View.INVISIBLE);
         callButton.setVisibility(View.INVISIBLE);
+        callLabel.setVisibility(View.INVISIBLE);
         callButton.setEnabled(false);
         Intent i = getIntent();
-        storedCase =(Case) i.getSerializableExtra("CASE_EXTRA");
+        storedCase = (Case) i.getSerializableExtra("CASE_EXTRA");
 
         if(i.hasExtra("selectedNote")){
             editingNote = true;
@@ -87,26 +90,34 @@ public class NoteActivity extends Activity {
                 }
             }
         });
-
+        //Save the note
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent returnIntent = new Intent();
                 if(editBox.getText().toString().isEmpty()){
+                    setResult(Activity.RESULT_CANCELED, returnIntent);
                     finish();
                 }else if(editingNote){
+                    storedCase.notes.remove(note);
                     note.noteText = editBox.getText().toString();
-                    if(contact == null || contact != note.contact){
+                    if(contact != note.contact){
                         note.contact = contact;
                     }
-                    storedCase.notes.remove(note);
                     storedCase.notes.add(note);
+                    returnIntent.putExtra("editedCase", storedCase);
+                    setResult(Activity.RESULT_OK, returnIntent);
+                    finish();
                 }else{
                     note = new Case.Note();
+                    note.user = storedCase.username;
                     note.noteText = editBox.getText().toString();
                     if(contact != null){
                         note.contact = contact;
                     }
                     storedCase.notes.add(note);
+                    returnIntent.putExtra("editedCase", storedCase);
+                    setResult(Activity.RESULT_OK, returnIntent);
                     finish();
                 }
             }
@@ -116,12 +127,10 @@ public class NoteActivity extends Activity {
     }
 
     private void populateFromNote(){
-
         editBox.setText(note.noteText);
         timerValue.setText(note.hours + ":" + note.minutes + ":"
                 + String.format("%02d", note.seconds));
         if(note.contact != null){
-
             contact = note.contact;
             populateFromContact();
         }
@@ -150,6 +159,7 @@ public class NoteActivity extends Activity {
     private Runnable updateTimerThread = new Runnable() {
         @Override
         public void run() {
+            //TODO Notes need to use GregorianCalendar to keep track of time
             timeInSeconds = SystemClock.uptimeMillis() - startTime;
             updatedTime = timeSwapBuff + timeInSeconds;
 

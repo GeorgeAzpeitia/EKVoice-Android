@@ -17,6 +17,7 @@ public class Case implements Serializable{
     }
     public String lastName;
     public String firstName;
+    public String username;
     public String position;
     public String claimNumber;
     public String address1;

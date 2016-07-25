@@ -4,12 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:elevation="5dp"
-    android:visibility="gone" >
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </RelativeLayout>
+    android:visibility= "gone" >
     <LinearLayout
         android:background="@drawable/rounded_cell"
         android:layout_width="match_parent"
@@ -21,49 +16,43 @@
         android:paddingBottom="15dp">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/content_avatar"
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                />
+                android:text="Add\nNote"
+                android:id="@+id/contactAddNote"
+                android:layout_gravity="right"
+                android:textColor="#649fe5"
+                android:background="#ffffff"
+                android:drawableRight="@mipmap/addnote"
+                android:paddingRight="-2dp"
+                android:focusable="false"
+                android:layout_alignParentRight="true" />
 
             <TextView
-                android:id="@+id/content_name_view"
+                android:id="@+id/contactNameExpanded"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/client_name_mock"
+                android:text="Liar Sucha"
                 android:textColor="#649fe5"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_below="@+id/content_avatar"
                 android:layout_alignParentStart="true"
-                android:paddingBottom="10dp" />
+                android:layout_toLeftOf="@+id/contactAddNote" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COMPANY"
+                android:id="@+id/contactPositionExpanded"
+                style="@style/ContentMainBadgeTitle"
+                android:layout_alignLeft="@+id/contactNameExpanded"
+                android:layout_below="@+id/contactNameExpanded" />
 
         </RelativeLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add\nNote"
-            android:id="@+id/button11"
-            android:layout_gravity="right"
-            android:textColor="#649fe5"
-            android:background="#ffffff"
-            android:drawableRight="@mipmap/addnote"
-            android:layout_marginTop="-45dp"
-            android:paddingRight="-2dp"
-            android:focusable="false"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="COMPANY"
-            android:id="@+id/textView9"
-            style="@style/ContentMainBadgeTitle" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -79,7 +68,7 @@
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
@@ -93,7 +82,7 @@
                     android:paddingTop="10dp" />
 
                 <TextView
-                    android:id="@+id/content_from_address_1"
+                    android:id="@+id/contactAddressLine1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/content_from_badge"
@@ -102,17 +91,28 @@
                     android:textColor="@color/dim_foreground_material_light"
                     android:textSize="16sp"
                     android:paddingTop="10dp" />
-
                 <TextView
-                    android:id="@+id/content_from_address_2"
+                    android:id="@+id/contactAddressLine2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/content_from_address_1"
-                    android:layout_below="@+id/content_from_address_1"
+                    android:layout_alignStart="@+id/contactAddressLine1"
+                    android:layout_below="@+id/contactAddressLine1"
                     android:text="@string/content_from2_mock"
                     android:textColor="@color/dim_foreground_material_light"
                     android:textSize="14sp"
-                    android:paddingBottom="10dp" />
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/contactAddressLine3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/contactAddressLine1"
+                    android:layout_below="@+id/contactAddressLine2"
+                    android:text="@string/content_from2_mock"
+                    android:textColor="@color/dim_foreground_material_light"
+                    android:textSize="14sp"
+                    android:paddingBottom="10dp"
+                    />
             </RelativeLayout>
 
             <RelativeLayout
@@ -161,8 +161,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
-            android:id="@+id/textView10"
-            android:textSize="16dp" />
+            android:id="@+id/contactEmail"
+            android:autoLink="email"
+            android:textSize="16dp"
+            android:focusable="false"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -182,17 +184,19 @@
             android:paddingTop="10dp" />
 
         <TextView
-            android:id="@+id/content_deadline_time"
+            android:id="@+id/contactPhone"
             android:layout_width="wrap_content"
             android:textColorHighlight="#649fe5"
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/content_deadline_badge"
             android:layout_below="@id/content_deadline_badge"
             android:text="@string/phone"
+            android:autoLink="phone"
             android:textColor="@color/background_material_dark"
             android:textSize="16sp"
             android:textColorHint="#649fe5"
-            android:textColorLink="#649fe5" />
+            android:textColorLink="#649fe5"
+            android:focusable="false"/>
 
     </LinearLayout>
 

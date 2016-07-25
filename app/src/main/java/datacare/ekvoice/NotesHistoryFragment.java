@@ -27,6 +27,7 @@ import java.util.Collections;
 public class NotesHistoryFragment extends Fragment{
     private ArrayList<Case.Note> notes;
     private Case storedCase;
+    static final int EDIT_NOTE = 3;
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -54,8 +55,7 @@ public class NotesHistoryFragment extends Fragment{
                 Intent intent = new Intent(getActivity(), NoteActivity.class);
                 intent.putExtra("CASE_EXTRA", storedCase);
                 intent.putExtra("selectedNote", itemValue);
-                startActivity(intent);
-
+                getActivity().startActivityForResult(intent, EDIT_NOTE);
 
             }
 

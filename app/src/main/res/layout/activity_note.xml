@@ -215,7 +215,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Call"
-                android:id="@+id/textView13"
+                android:id="@+id/noteCallLabel"
                 android:layout_marginRight="15dp"
                 android:textSize="12dp"
                 android:layout_below="@+id/addNoteCallButton"

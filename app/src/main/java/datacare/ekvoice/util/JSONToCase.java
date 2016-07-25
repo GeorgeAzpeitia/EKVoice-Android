@@ -171,8 +171,11 @@ public class JSONToCase {
                         while (reader.hasNext()) {
                             name = reader.nextName();
                             switch (name){
+                                 
                                 case ("user"):
+                                    // TODO: 7/18/16 This is placeholder code, just takes the first username in the first note 
                                     note.user = reader.nextString();
+                                    if(aCase.username == null) aCase.username = note.user;
                                     break;
                                 case ("date"):
                                     note.date = reader.nextString();
